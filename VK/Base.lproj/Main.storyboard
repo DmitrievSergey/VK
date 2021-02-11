@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mwY-fF-APf">
+                                <rect key="frame" x="20" y="432" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lKH-ht-83g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email или телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-i6-1fk">
+                                <rect key="frame" x="20" y="372" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rEA-fB-qSU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vkontakte-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Uhw-pk-wFm">
+                                <rect key="frame" x="143" y="164" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uhw-pk-wFm" secondAttribute="height" multiplier="1:1" id="06Q-65-ubN"/>
+                                    <constraint firstAttribute="width" constant="128" id="JMg-Qy-NYT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-Dg-Dep">
+                                <rect key="frame" x="20" y="64" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="A8X-h9-8hn"/>
+                                    <constraint firstAttribute="width" constant="32" id="aaX-iI-2rY"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="close"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwT-fp-8NZ">
+                                <rect key="frame" x="20" y="512" width="374" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="caR-gM-lxf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Войти">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uwT-fp-8NZ" firstAttribute="width" secondItem="mwY-fF-APf" secondAttribute="width" id="4Wl-Vt-L14"/>
+                            <constraint firstItem="mwY-fF-APf" firstAttribute="top" secondItem="5T3-i6-1fk" secondAttribute="bottom" id="7ZL-6Q-YC5"/>
+                            <constraint firstItem="mwY-fF-APf" firstAttribute="width" secondItem="5T3-i6-1fk" secondAttribute="width" id="CPB-6f-3PS"/>
+                            <constraint firstItem="5T3-i6-1fk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOz-fH-bCM"/>
+                            <constraint firstItem="Uhw-pk-wFm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="JGe-ns-uKO"/>
+                            <constraint firstItem="Uhw-pk-wFm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="M8K-xk-88W"/>
+                            <constraint firstItem="5T3-i6-1fk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NWF-2h-O1g"/>
+                            <constraint firstItem="mwY-fF-APf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UKf-J4-jeO"/>
+                            <constraint firstItem="uwT-fp-8NZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xmg-Mo-jdj"/>
+                            <constraint firstItem="uwT-fp-8NZ" firstAttribute="top" secondItem="mwY-fF-APf" secondAttribute="bottom" constant="20" id="ZKm-La-oAM"/>
+                            <constraint firstItem="mwY-fF-APf" firstAttribute="height" secondItem="5T3-i6-1fk" secondAttribute="height" id="cQE-od-CUD"/>
+                            <constraint firstItem="fJO-Dg-Dep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mMq-IQ-r3y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5T3-i6-1fk" secondAttribute="trailing" constant="20" id="q8v-n9-j5L"/>
+                            <constraint firstItem="fJO-Dg-Dep" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sml-Th-2Zh"/>
+                            <constraint firstItem="5T3-i6-1fk" firstAttribute="top" secondItem="Uhw-pk-wFm" secondAttribute="bottom" constant="80" id="yHI-WQ-s9c"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="42"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="64" height="64"/>
+        <image name="vkontakte-logo" width="512" height="512"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
