@@ -16,12 +16,17 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        passwordTextField.isSecureTextEntry = true
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
+        print("closeButtonPressed")
+        print(logInTextField.text!)
+        print(passwordTextField.text!)
     }
     
     @IBAction func logInButtonPressed(_ sender: Any) {
+        print("Закрываем......")
     }
 }
 
