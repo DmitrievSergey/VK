@@ -25,7 +25,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func logInButtonPressed(_ sender: Any) {
 
-        print("closeButtonPressed")
+        print("logInButtonPressed")
         print(logInTextField.text!)
         print(passwordTextField.text!)
     }
