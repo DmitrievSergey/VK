@@ -20,13 +20,14 @@ class LogInViewController: UIViewController {
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
-        print("closeButtonPressed")
-        print(logInTextField.text!)
-        print(passwordTextField.text!)
+        print("Закрываем......")
     }
     
     @IBAction func logInButtonPressed(_ sender: Any) {
-        print("Закрываем......")
+
+        print("closeButtonPressed")
+        print(logInTextField.text!)
+        print(passwordTextField.text!)
     }
 }
 
