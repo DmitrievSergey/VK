@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-rk-J61" userLabel="ContentVIew">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="508"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="528"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email или телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-i6-1fk">
                                                 <rect key="frame" x="20" y="268" width="374" height="60"/>
@@ -64,13 +64,16 @@
                                                 <state key="normal" title="Войти">
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAW-jv-NIu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="5T3-i6-1fk" firstAttribute="top" secondItem="Uhw-pk-wFm" secondAttribute="bottom" constant="80" id="FMC-QM-J1a"/>
                                             <constraint firstItem="Uhw-pk-wFm" firstAttribute="centerX" secondItem="QOB-rk-J61" secondAttribute="centerX" id="Gl1-8K-8Xc"/>
-                                            <constraint firstAttribute="bottom" secondItem="uwT-fp-8NZ" secondAttribute="bottom" constant="20" id="Pwf-1U-n1t"/>
+                                            <constraint firstAttribute="bottom" secondItem="uwT-fp-8NZ" secondAttribute="bottom" constant="40" id="Pwf-1U-n1t"/>
                                             <constraint firstAttribute="trailing" secondItem="5T3-i6-1fk" secondAttribute="trailing" constant="20" symbolic="YES" id="Ti2-Ke-SQi"/>
                                             <constraint firstAttribute="trailing" secondItem="uwT-fp-8NZ" secondAttribute="trailing" constant="20" symbolic="YES" id="VlV-aa-a7h"/>
                                             <constraint firstItem="mwY-fF-APf" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" symbolic="YES" id="Xwx-Ey-SYN"/>
@@ -105,6 +108,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Eh-0M-87S" secondAttribute="bottom" constant="-34" id="uq9-Qs-4iU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logInTextFIeld" destination="5T3-i6-1fk" id="5WA-bm-tqD"/>
+                        <outlet property="passwordTextField" destination="mwY-fF-APf" id="D3P-wX-y0J"/>
+                        <outlet property="scrollView" destination="0Eh-0M-87S" id="USv-vK-8n5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="cpt-4X-aZQ">
