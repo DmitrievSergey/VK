@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
         
         // Жест нажатия
-                let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+                let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapView))
                 // Присваиваем его UIScrollVIew
                 scrollView?.addGestureRecognizer(hideKeyboardGesture)
 
@@ -42,18 +42,11 @@ class LogInViewController: UIViewController {
         }
 
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
-       
+        scrollView.endEditing(true)
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        guard let login = logInTextFIeld.text, let password = passwordTextField.text else {return}
-        
-        if login == "admin" && password == "123456" {
-            print("Sucsessfully log in")
-        } else {
-            print("wrong login or password")
-        }
     }
     
     @objc func keyboardWasShown(notification: Notification) {
@@ -75,9 +68,9 @@ class LogInViewController: UIViewController {
             scrollView?.contentInset = contentInsets
         }
         
-    @objc func hideKeyboard() {
+    /*@objc func hideKeyboard() {
             self.scrollView?.endEditing(true)
-        }
+        }*/
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let checkResult = checkUserData()
