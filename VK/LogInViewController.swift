@@ -78,6 +78,42 @@ class LogInViewController: UIViewController {
     @objc func hideKeyboard() {
             self.scrollView?.endEditing(true)
         }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let checkResult = checkUserData()
+        
+        if !checkResult {
+            showLoginError()
+        }
+        
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = logInTextFIeld.text,
+              let password = passwordTextField.text else{return false}
+        
+        if login == "admin" && password == "123456" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func showLoginError() {
+        let alert = UIAlertController(
+            title: "Некорректные данные",
+            message: "Логин или пароль введены некорректно. Попробуйте еще раз!",
+            preferredStyle: .alert)
+        
+        let action = UIAlertAction(
+            title: "OK",
+            style: .cancel,
+            handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 

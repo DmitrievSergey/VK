@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671B5E2725DA18410049C37F /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B5E2625DA18410049C37F /* FriendsListViewController.swift */; };
 		67E44FDC25D4D0AD007B8CC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDB25D4D0AD007B8CC4 /* AppDelegate.swift */; };
 		67E44FDE25D4D0AD007B8CC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDD25D4D0AD007B8CC4 /* SceneDelegate.swift */; };
 		67E44FE025D4D0AD007B8CC4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDF25D4D0AD007B8CC4 /* LogInViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		671B5E2625DA18410049C37F /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		67E44FD825D4D0AD007B8CC4 /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E44FDB25D4D0AD007B8CC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E44FDD25D4D0AD007B8CC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				67E44FE425D4D0AE007B8CC4 /* Assets.xcassets */,
 				67E44FE625D4D0AE007B8CC4 /* LaunchScreen.storyboard */,
 				67E44FE925D4D0AE007B8CC4 /* Info.plist */,
+				671B5E2625DA18410049C37F /* FriendsListViewController.swift */,
 			);
 			path = VK;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671B5E2725DA18410049C37F /* FriendsListViewController.swift in Sources */,
 				67E44FE025D4D0AD007B8CC4 /* LogInViewController.swift in Sources */,
 				67E44FDC25D4D0AD007B8CC4 /* AppDelegate.swift in Sources */,
 				67E44FDE25D4D0AD007B8CC4 /* SceneDelegate.swift in Sources */,
