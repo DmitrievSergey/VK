@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class FriendCollectionViewController: UICollectionViewController {
-
+    var displayedFriend: Friends?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,8 +19,9 @@ class FriendCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         // Do any additional setup after loading the view.
+        title = "\(displayedFriend?.friendName ?? "Anonym") Collection" 
+
     }
 
     /*
@@ -43,14 +44,18 @@ class FriendCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        if let friend = displayedFriend {
+            return friend.friendCollection.count
+        } else {return 0}
+        
+
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCellCollection", for: indexPath) as! FriendCollectionCellView
-    
-       
-    
+        guard let friend = displayedFriend else {return UICollectionViewCell()}
+        cell.imageCellCollection.image = UIImage(named: friend.friendCollection[indexPath.row])
+        cell.labelCellCollectio.text = friend.friendCollection[indexPath.row]
         return cell
     }
 
@@ -84,5 +89,4 @@ class FriendCollectionViewController: UICollectionViewController {
     
     }
     */
-
 }

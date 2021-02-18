@@ -40,12 +40,12 @@ class FriendsListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView 
 
         let friend = friends[indexPath.row]
         
         cell.friendNameLabel.text = friend.friendName
-        cell.friendAvaImage.image = UIImage(named: friend.friendName)
+        cell.friendAvaImage.image = friend.friendAva
 
         return cell
     }
@@ -95,5 +95,15 @@ class FriendsListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+//MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToFriendCollectionSegue",
+           let senderCell = sender as? FriendCellView,
+           let cellIndexPath = tableView.indexPath(for: senderCell),
+           let friendCollectionViewcontroller = segue.destination as? FriendCollectionViewController {
+            let selectedFriend = friends[cellIndexPath.row]
+            friendCollectionViewcontroller.displayedFriend = selectedFriend
+        }
+    }
+    
 }

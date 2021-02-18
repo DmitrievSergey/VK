@@ -280,7 +280,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thecat" translatesAutoresizingMaskIntoConstraints="NO" id="alV-sf-Fei">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alV-sf-Fei">
                                                     <rect key="frame" x="334" y="0.0" width="64" height="64.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="64" id="n9t-tp-4gh"/>
@@ -304,7 +304,7 @@
                                 <connections>
                                     <outlet property="friendAvaImage" destination="alV-sf-Fei" id="s38-kI-SLA"/>
                                     <outlet property="friendNameLabel" destination="n2X-lA-euv" id="vM6-Ga-2O6"/>
-                                    <segue destination="gDb-Cd-BFE" kind="show" identifier="ToFriendCollection" id="oBX-lD-vtG"/>
+                                    <segue destination="gDb-Cd-BFE" kind="show" identifier="ToFriendCollectionSegue" id="oBX-lD-vtG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -391,7 +391,6 @@
     <resources>
         <image name="Kate" width="700" height="525"/>
         <image name="close" width="64" height="64"/>
-        <image name="thecat" width="700" height="525"/>
         <image name="vkontakte-logo" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
