@@ -1,5 +1,5 @@
 //
-//  MyGroupTableViewCell.swift
+//  GroupTableViewCell.swift
 //  VK
 //
 //  Created by Сергей Дмитриев on 19.02.2021.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MyGroupTableViewCell: UITableViewCell {
+class GroupCellViewController: UITableViewCell {
 
+    @IBOutlet weak var groupCellImage: UIImageView!
+    @IBOutlet weak var groupCellLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

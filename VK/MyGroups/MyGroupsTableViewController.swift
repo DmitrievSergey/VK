@@ -8,7 +8,9 @@
 import UIKit
 
 class MyGroupsTableViewController: UITableViewController {
-
+    
+    var myGroupArray:[Groups] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +19,10 @@ class MyGroupsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
     }
 
     // MARK: - Table view data source
@@ -28,14 +34,24 @@ class MyGroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        
+
+        return myGroupArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupCell", for: indexPath) as! MyGroupCellViewController
+        
+        
 
-        // Configure the cell...
+            cell.myGroupCellLabel.text = myGroupArray[indexPath.row].groupName
+        
+            cell.myGroupCellImage.image = UIImage(named: myGroupArray[indexPath.row].groupAva) 
+    
+        
+        
+        
 
         return cell
     }
@@ -49,17 +65,15 @@ class MyGroupsTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            myGroupArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -85,5 +99,21 @@ class MyGroupsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    //MARK: - Segue
+    @IBAction func addGroup (segue: UIStoryboardSegue){
+        
+        if segue.identifier == "addGroup" {
+            guard let groupsTableViewController = segue.source as? GroupsTableViewController else {return}
+            if let indexPath = groupsTableViewController.tableView.indexPathForSelectedRow{
+                let group = groupsTableViewController.groupsList[indexPath.row]
+                if !myGroupArray.contains(group){
+                    myGroupArray.append(group)
+                    tableView.reloadData()
+                }
+
+            }
+        }
+        
+    }
 
 }

@@ -8,9 +8,24 @@
 import UIKit
 
 class GroupsTableViewController: UITableViewController {
+    
+    let groupsList = [
+        Groups(groupName: "name1", groupAva: "groupAva1"),
+        Groups(groupName: "name2", groupAva: "groupAva2"),
+        Groups(groupName: "name3", groupAva: "groupAva3"),
+        Groups(groupName: "name4", groupAva: "groupAva4"),
+        Groups(groupName: "name5", groupAva: "groupAva5"),
+        Groups(groupName: "name6", groupAva: "groupAva6"),
+        Groups(groupName: "name7", groupAva: "groupAva7"),
+        Groups(groupName: "name8", groupAva: "groupAva8"),
+        Groups(groupName: "name9", groupAva: "groupAva9"),
+        Groups(groupName: "name10", groupAva: "groupAva10"),
+    ]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,14 +43,15 @@ class GroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return groupsList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCellViewController
 
-        // Configure the cell...
+        cell.groupCellLabel.text = groupsList[indexPath.row].groupName
+        cell.groupCellImage.image = UIImage(named: groupsList[indexPath.row].groupAva)
 
         return cell
     }

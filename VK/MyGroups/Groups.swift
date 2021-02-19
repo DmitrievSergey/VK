@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+
+struct Groups: Equatable {
+    let groupName:String
+    let groupAva:String
+}

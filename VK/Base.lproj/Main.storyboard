@@ -199,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyGroupCell" id="PME-FL-Q1b" customClass="MyGroupTableViewCell" customModule="VK" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyGroupCell" id="PME-FL-Q1b" customClass="MyGroupCellViewController" customModule="VK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="64.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PME-FL-Q1b" id="9Vz-Ri-s9B">
@@ -218,20 +218,24 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4u-nz-TCZ">
                                                     <rect key="frame" x="333.66666666666669" y="0.0" width="64.333333333333314" height="64.333333333333329"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="GHP-Zr-HKX"/>
-                                                        <constraint firstAttribute="width" secondItem="Q4u-nz-TCZ" secondAttribute="height" multiplier="1:1" id="aYy-bL-uny"/>
+                                                        <constraint firstAttribute="height" constant="64" identifier="MyGroupCellImageHeight" id="GHP-Zr-HKX"/>
+                                                        <constraint firstAttribute="width" secondItem="Q4u-nz-TCZ" secondAttribute="height" multiplier="1:1" identifier="MyGroupCellImageAspect" id="aYy-bL-uny"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Jlk-mG-l8Z" firstAttribute="leading" secondItem="9Vz-Ri-s9B" secondAttribute="leading" constant="8" id="4Ch-CQ-yle"/>
-                                        <constraint firstAttribute="trailing" secondItem="Jlk-mG-l8Z" secondAttribute="trailing" constant="8" id="OUz-NB-z5c"/>
-                                        <constraint firstAttribute="bottom" secondItem="Jlk-mG-l8Z" secondAttribute="bottom" id="dKP-1N-a7m"/>
-                                        <constraint firstItem="Jlk-mG-l8Z" firstAttribute="top" secondItem="9Vz-Ri-s9B" secondAttribute="top" id="pqC-Cv-apZ"/>
+                                        <constraint firstItem="Jlk-mG-l8Z" firstAttribute="leading" secondItem="9Vz-Ri-s9B" secondAttribute="leading" constant="8" identifier="MyGroupCellStackL" id="4Ch-CQ-yle"/>
+                                        <constraint firstAttribute="trailing" secondItem="Jlk-mG-l8Z" secondAttribute="trailing" constant="8" identifier="MyGroupCellStackTr" id="OUz-NB-z5c"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jlk-mG-l8Z" secondAttribute="bottom" identifier="MyGroupCellStackB" id="dKP-1N-a7m"/>
+                                        <constraint firstItem="Jlk-mG-l8Z" firstAttribute="top" secondItem="9Vz-Ri-s9B" secondAttribute="top" identifier="MyGroupCellStackT" id="pqC-Cv-apZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="myGroupCellImage" destination="Q4u-nz-TCZ" id="bNT-op-u8N"/>
+                                    <outlet property="myGroupCellLabel" destination="Ivh-Wd-cBX" id="48K-6Z-rw5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -243,7 +247,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="jry-bK-jWw"/>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="9Da-dc-Ail">
                             <connections>
-                                <segue destination="gRT-6o-kAd" kind="show" id="e5p-7Y-1ZK"/>
+                                <segue destination="gRT-6o-kAd" kind="show" identifier="FromMyToGroups" id="e5p-7Y-1ZK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -261,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" id="ANN-T4-0Bv" customClass="GroupTableViewCell" customModule="VK" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" id="ANN-T4-0Bv" customClass="GroupCellViewController" customModule="VK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="64.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ANN-T4-0Bv" id="FhT-2L-ruX">
@@ -294,6 +298,11 @@
                                         <constraint firstItem="Wcu-mJ-F05" firstAttribute="leading" secondItem="FhT-2L-ruX" secondAttribute="leading" constant="8" id="xHi-nh-NhN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupCellImage" destination="eRg-rm-paz" id="0Xp-rP-PNP"/>
+                                    <outlet property="groupCellLabel" destination="4Ab-Xv-PXo" id="6kV-LI-q4v"/>
+                                    <segue destination="rxl-Qh-qc3" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="Gh9-JY-MlY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -304,6 +313,7 @@
                     <navigationItem key="navigationItem" id="meF-Ze-MgN"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9G-Dq-29R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rxl-Qh-qc3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1854" y="289"/>
         </scene>
@@ -319,7 +329,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="RIT-EA-wMl" customClass="FriendCellView" customModule="VK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="64.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RIT-EA-wMl" id="fcW-Og-2n1">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RIT-EA-wMl" id="fcW-Og-2n1" userLabel="FriendsListContentView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="64.333335876464844"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -342,7 +352,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="n2X-lA-euv" firstAttribute="top" secondItem="4g1-fH-UQy" secondAttribute="top" id="FA3-oJ-i6s"/>
+                                                <constraint firstItem="alV-sf-Fei" firstAttribute="top" secondItem="n2X-lA-euv" secondAttribute="top" id="H5Y-Ed-W0O"/>
                                                 <constraint firstAttribute="bottom" secondItem="n2X-lA-euv" secondAttribute="bottom" id="XXL-zE-cTf"/>
+                                                <constraint firstAttribute="height" constant="64" id="jKF-oc-phu"/>
+                                                <constraint firstItem="alV-sf-Fei" firstAttribute="bottom" secondItem="n2X-lA-euv" secondAttribute="bottom" id="q2a-qa-asT"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
