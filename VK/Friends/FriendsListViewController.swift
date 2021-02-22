@@ -9,13 +9,17 @@ import UIKit
 
 class FriendsListViewController: UITableViewController {
     
-    var friends = [
-        Friends(friendName: "Alex"),
-        Friends(friendName: "Kate"),
-        Friends(friendName: "Serg"),
-        Friends(friendName: "Duke"),
-        Friends(friendName: "Nick")
+    var friends: Array<Array<Friends>> = [
+        [Friends(friendName: "Alex"), Friends(friendName: "Alen")],
+        [Friends(friendName: "Kate")],
+        [Friends(friendName: "Serg")],
+        [Friends(friendName: "Duke")],
+        [Friends(friendName: "Nick")]
     ]
+    var sections:Array<String> = ["A", "K", "S", "D", "N"]
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,27 +29,50 @@ class FriendsListViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        
+    }
+    //TODO: Увеличить высоту бар итема
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sections.count
     }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.sections[section]
+    
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.font = UIFont(name: "System.Bold", size: 50)
+       
+    }
+    
+    
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return friends[section].count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView 
 
-        let friend = friends[indexPath.row]
+        let friend = friends[indexPath.section][indexPath.row]
         
         cell.friendNameLabel.text = friend.friendName
-        cell.friendAvaImage.image = friend.friendAva
+        cell.friendAvaImage.imView.image = friend.friendAva
 
         return cell
     }
@@ -101,7 +128,7 @@ class FriendsListViewController: UITableViewController {
            let senderCell = sender as? FriendCellView,
            let cellIndexPath = tableView.indexPath(for: senderCell),
            let friendCollectionViewcontroller = segue.destination as? FriendCollectionViewController {
-            let selectedFriend = friends[cellIndexPath.row]
+            let selectedFriend = friends[cellIndexPath.section][cellIndexPath.row]
             friendCollectionViewcontroller.displayedFriend = selectedFriend
         }
     }

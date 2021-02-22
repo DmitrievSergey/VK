@@ -47,7 +47,7 @@ class MyGroupsTableViewController: UITableViewController {
 
             cell.myGroupCellLabel.text = myGroupArray[indexPath.row].groupName
         
-            cell.myGroupCellImage.image = UIImage(named: myGroupArray[indexPath.row].groupAva) 
+        cell.myGroupCellImage.imView.image = UIImage(named: myGroupArray[indexPath.row].groupAva) 
     
         
         
