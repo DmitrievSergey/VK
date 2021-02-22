@@ -162,7 +162,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill.badge.plus" catalog="system" selectedImage="person.fill.badge.plus" id="d4r-Nq-QrT"/>
                     <navigationItem key="navigationItem" id="vrK-xA-qjH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KQZ-vf-Mxq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -179,7 +179,7 @@
                 <navigationController id="jU9-7Q-x8y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="NFN-MP-7k6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TZO-DB-qa1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -406,14 +406,14 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendCellCollection" id="0hc-Gg-heL" customClass="FriendCollectionCellView" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="152"/>
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ePW-5e-9IM">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="152"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1dP-rx-cr8">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kate" translatesAutoresizingMaskIntoConstraints="NO" id="CZI-Im-wHz">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -422,12 +422,13 @@
                                                         <constraint firstAttribute="height" constant="128" id="etM-j9-rOa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIq-Ho-BEO">
-                                                    <rect key="frame" x="0.0" y="128" width="128" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQI-gf-lLY" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="128" width="128" height="40"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="WhS-hQ-V2g"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -439,8 +440,8 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
+                                    <outlet property="customButtonLiked" destination="kQI-gf-lLY" id="dvK-Il-uox"/>
                                     <outlet property="imageCellCollection" destination="CZI-Im-wHz" id="ejw-Qm-iha"/>
-                                    <outlet property="labelCellCollectio" destination="jIq-Ho-BEO" id="ZAZ-aO-ylU"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
