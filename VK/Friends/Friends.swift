@@ -19,17 +19,22 @@ var friendsCollection: [String: [String]] = [
     "Alen":["Alen-collection"],
     "Serg":["Serg-collection"],
     "Duke":["Duke-collection", "Duke-collection1"],
+    "Default":[]
 ]
 
 struct Friends {
     let friendName: String
     var friendAva: UIImage{
-        return UIImage(named: friendName)!
+        if let ava = UIImage(named: friendName){
+            return ava
+        } else {return UIImage(systemName: "heart")!}
     }
     
     var friendCollection:[String]{
         let name = "\(friendName)"
-        return friendsCollection[name]!
+        if let collectionName = friendsCollection[name] {
+            return collectionName
+        } else { return friendsCollection["Default"]!}
     }
     
     init(friendName: String) {

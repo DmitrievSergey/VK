@@ -19,21 +19,31 @@ class ButtonLiked: UIView {
         setUpView()
     }
     
+    
+    var isLiked: Bool = false
+    private let buttonDislikeImage = UIImage(systemName: "heart")
+    private let buttonLikedImage = UIImage(systemName: "heart.fill")
+    
+    
     var button: UIButton = UIButton(frame: CGRect(x: 80, y: -5, width: 20, height: 20))
     
     var label: UILabel = UILabel(frame: CGRect(x: 110, y: -5, width: 20, height: 20))
     
-    var isLiked: Bool = false
-    
   
+    func setInitButtonState () {
+        isLiked = false
+        label.text = "0"
+        button.setImage(buttonDislikeImage, for: .normal)
+    }
+    
     @objc func onPress() {
         print("pressed")
         if isLiked == true {
-            button.setImage(UIImage(systemName: "heart"), for: .normal)
+            button.setImage(buttonDislikeImage, for: .normal)
             label.text = "0"
             isLiked = false
         } else {
-            button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            button.setImage(buttonLikedImage, for: .normal)
             label.text = "1"
             isLiked = true
         }
@@ -49,17 +59,6 @@ class ButtonLiked: UIView {
         label.text = "0"
         label.textColor = .red
         
-        
-        //button.backgroundColor = .red
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
-        //button.setTitle("MyButton", for: .normal)
-        //button.setTitleColor(.white, for: .normal)
-       // button.layer.cornerRadius = button.frame.height / 2
-
         button.addTarget(self, action: #selector(onPress), for: .touchUpInside)
-
-        
     }
-
-
 }

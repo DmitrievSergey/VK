@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct Groups: Equatable {
+struct Group: Equatable {
     let groupName:String
     let groupAva:String
 }
