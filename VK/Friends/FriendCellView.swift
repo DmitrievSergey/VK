@@ -14,6 +14,8 @@ class FriendCellView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -22,3 +24,5 @@ class FriendCellView: UITableViewCell {
     }
 
 }
+
+

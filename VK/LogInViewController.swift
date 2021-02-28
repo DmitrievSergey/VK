@@ -13,8 +13,13 @@ class LogInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     @IBOutlet var scrollView: UIScrollView!
+    
+ 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         // Do any additional setup after loading the view.
         passwordTextField.isSecureTextEntry = true
         

@@ -8,34 +8,42 @@ import UIKit
 
 class CustomAva: UIView {
 
-    var imView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
-    private var shView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+    var imageView: UIImageView = UIImageView(frame: .zero)
+        //UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+    private var shadowView: UIView = UIView(frame: .zero)
+        //UIView = UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+    
+    var cornerRadius: CGFloat {
+        get {return self.bounds.height / 2}
+        set {self.layer.cornerRadius  = newValue}
+    }
+    
     @IBInspectable
-    var shRadius: CGFloat {
+    var shadowRadius: CGFloat {
         get {
-           return shView.layer.shadowRadius
+           return shadowView.layer.shadowRadius
         }
         set {
-            shView.layer.shadowRadius = newValue
+            shadowView.layer.shadowRadius = newValue
         }
     }
     @IBInspectable
-    var shOpacity: Float {
+    var shadowOpacity: Float {
         get {
-           return shView.layer.shadowOpacity
+           return shadowView.layer.shadowOpacity
         }
         set {
-            shView.layer.shadowOpacity = newValue
+            shadowView.layer.shadowOpacity = newValue
         }
     }
     
     @IBInspectable
-    var shColor: UIColor? {
+    var shadowColor: UIColor? {
         get {
-           return UIColor(cgColor: shView.layer.shadowColor!)
+            return UIColor(cgColor: shadowView.layer.shadowColor ?? UIColor.clear.cgColor)
         }
         set {
-            shView.layer.shadowColor = newValue?.cgColor
+            shadowView.layer.shadowColor = newValue?.cgColor
         }
     }
 
@@ -51,19 +59,35 @@ class CustomAva: UIView {
 
     }
     
+    fileprivate func setupConstraint(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+    }
+    
     func setupView() {
         self.backgroundColor = .clear
-        self.addSubview(shView)
-        self.addSubview(imView)
-        shView.backgroundColor = .white
-        shView.layer.shadowColor = shColor?.cgColor
-        shView.layer.shadowOpacity = shOpacity
-        shView.layer.shadowRadius = shRadius
-        shView.layer.shadowOffset = CGSize.zero
-        shView.layer.cornerRadius = shView.frame.height / 2
+        self.addSubview(shadowView)
+        self.addSubview(imageView)
         
-        imView.layer.masksToBounds = true
-        imView.layer.cornerRadius = imView.frame.height / 2
+        setupConstraint(shadowView)
+        setupConstraint(imageView)
+        
+        shadowView.backgroundColor = .white
+        shadowView.layer.shadowColor = shadowColor?.cgColor
+        shadowView.layer.shadowOpacity = shadowOpacity
+        shadowView.layer.shadowRadius = shadowRadius
+        shadowView.layer.shadowOffset = CGSize.zero
+        shadowView.layer.cornerRadius = cornerRadius
+        
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = cornerRadius
+        
+
+        
+        
 
 
     }

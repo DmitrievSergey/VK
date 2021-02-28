@@ -162,7 +162,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill.badge.plus" catalog="system" selectedImage="person.fill.badge.plus" id="d4r-Nq-QrT"/>
                     <navigationItem key="navigationItem" id="vrK-xA-qjH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KQZ-vf-Mxq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -221,6 +221,17 @@
                                                         <constraint firstAttribute="width" secondItem="PZT-WC-Vu3" secondAttribute="height" multiplier="1:1" id="G3i-gA-Lxk"/>
                                                         <constraint firstAttribute="height" constant="64" id="gdQ-Vu-1zk"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shColor">
+                                                            <color key="value" systemColor="systemTealColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shOpacity">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                         </stackView>
@@ -288,6 +299,17 @@
                                                         <constraint firstAttribute="height" constant="64" id="MDA-mj-G8Q"/>
                                                         <constraint firstAttribute="width" secondItem="qQw-99-qG0" secondAttribute="height" multiplier="1:1" id="vpP-kY-SuA"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shColor">
+                                                            <color key="value" systemColor="systemGreenColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shOpacity">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                         </stackView>
@@ -388,15 +410,14 @@
         <scene sceneID="Uht-VU-lei">
             <objects>
                 <viewController id="ybX-mg-uXf" customClass="FriendsListViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rve-fc-k1c">
+                    <view key="view" contentMode="scaleToFill" id="rve-fc-k1c" userLabel="ViewFL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="JhA-Y2-g2A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="JhA-Y2-g2A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
                                 <color key="sectionIndexColor" systemColor="systemOrangeColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="68" id="XnI-bW-Lsh" customClass="FriendCellView" customModule="VK" customModuleProvider="target">
@@ -406,47 +427,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-D0-VAb">
-                                                    <rect key="frame" x="20" y="4" width="280" height="60"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSY-Q8-fcJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="212" height="60"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5w-xK-Zvq" customClass="CustomAva" customModule="VK" customModuleProvider="target">
-                                                            <rect key="frame" x="220" y="0.0" width="60" height="60"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="64" id="hAU-gI-hQQ"/>
-                                                                <constraint firstAttribute="width" secondItem="u5w-xK-Zvq" secondAttribute="height" multiplier="1:1" id="yC3-CX-ZQj"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="shColor">
-                                                                    <color key="value" systemColor="systemOrangeColor"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="shRadius">
-                                                                    <real key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="shOpacity">
-                                                                    <real key="value" value="1"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                    </subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5w-xK-Zvq" customClass="CustomAva" customModule="VK" customModuleProvider="target">
+                                                    <rect key="frame" x="240" y="4" width="60" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="IpI-cE-D97"/>
-                                                        <constraint firstAttribute="bottom" secondItem="NSY-Q8-fcJ" secondAttribute="bottom" id="TCx-hH-WLK"/>
-                                                        <constraint firstItem="NSY-Q8-fcJ" firstAttribute="top" secondItem="d8a-D0-VAb" secondAttribute="top" id="jcr-Px-xk9"/>
+                                                        <constraint firstAttribute="height" constant="64" id="hAU-gI-hQQ"/>
+                                                        <constraint firstAttribute="width" secondItem="u5w-xK-Zvq" secondAttribute="height" multiplier="1:1" id="yC3-CX-ZQj"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shRadius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shOpacity">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSY-Q8-fcJ">
+                                                    <rect key="frame" x="20" y="4" width="212" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212" id="WRR-1R-5qZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="d8a-D0-VAb" secondAttribute="bottom" constant="4" id="OVJ-QP-P0g"/>
-                                                <constraint firstAttribute="trailing" secondItem="d8a-D0-VAb" secondAttribute="trailing" constant="20" id="fFj-iD-15c"/>
-                                                <constraint firstItem="d8a-D0-VAb" firstAttribute="leading" secondItem="e3F-ve-yMw" secondAttribute="leading" constant="20" id="h3p-r4-Oz6"/>
-                                                <constraint firstItem="d8a-D0-VAb" firstAttribute="top" secondItem="e3F-ve-yMw" secondAttribute="top" constant="4" id="laK-S8-7Cr"/>
+                                                <constraint firstItem="NSY-Q8-fcJ" firstAttribute="top" secondItem="e3F-ve-yMw" secondAttribute="top" constant="4" id="81r-Il-9fE"/>
+                                                <constraint firstItem="u5w-xK-Zvq" firstAttribute="top" secondItem="e3F-ve-yMw" secondAttribute="top" constant="4" id="Ers-PG-2Uy"/>
+                                                <constraint firstItem="NSY-Q8-fcJ" firstAttribute="leading" secondItem="e3F-ve-yMw" secondAttribute="leading" constant="20" id="M8Q-fo-bgG"/>
+                                                <constraint firstItem="u5w-xK-Zvq" firstAttribute="leading" secondItem="NSY-Q8-fcJ" secondAttribute="trailing" constant="8" id="NLR-ph-XDG"/>
+                                                <constraint firstAttribute="bottom" secondItem="u5w-xK-Zvq" secondAttribute="bottom" constant="4" id="Uje-No-juO"/>
+                                                <constraint firstAttribute="trailing" secondItem="u5w-xK-Zvq" secondAttribute="trailing" constant="20" symbolic="YES" id="Xe4-2K-9Cq"/>
+                                                <constraint firstAttribute="bottom" secondItem="NSY-Q8-fcJ" secondAttribute="bottom" constant="4" id="xlb-JZ-75a"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -465,14 +483,16 @@
                         <viewLayoutGuide key="safeArea" id="nUm-cW-E0H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RL5-y6-0Ko"/>
+                    <navigationItem key="navigationItem" id="Zv5-nX-gKS">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="rWf-SB-p95"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="friendTableView" destination="JhA-Y2-g2A" id="kQx-zf-fc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xf-SX-LJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-489"/>
+            <point key="canvasLocation" x="858.75" y="-490"/>
         </scene>
     </scenes>
     <resources>
@@ -484,14 +504,17 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

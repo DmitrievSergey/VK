@@ -20,44 +20,48 @@ class ButtonLiked: UIView {
     }
     
     
-    var isLiked: Bool = false
+    var isLiked: Bool = false {
+        didSet {
+            button.setImage(isLiked ? buttonLikedImage : buttonDislikeImage, for: .normal)
+            label.text = isLiked ? "1" : "0"
+        }
+    }
     private let buttonDislikeImage = UIImage(systemName: "heart")
     private let buttonLikedImage = UIImage(systemName: "heart.fill")
     
     
-    var button: UIButton = UIButton(frame: CGRect(x: 80, y: -5, width: 20, height: 20))
+    var button: UIButton = UIButton(frame: .zero)
     
-    var label: UILabel = UILabel(frame: CGRect(x: 110, y: -5, width: 20, height: 20))
+    var label: UILabel = UILabel(frame: .zero)
     
   
     func setInitButtonState () {
         isLiked = false
         label.text = "0"
+        label.textColor = .red
         button.setImage(buttonDislikeImage, for: .normal)
     }
     
     @objc func onPress() {
         print("pressed")
-        if isLiked == true {
-            button.setImage(buttonDislikeImage, for: .normal)
-            label.text = "0"
-            isLiked = false
-        } else {
-            button.setImage(buttonLikedImage, for: .normal)
-            label.text = "1"
-            isLiked = true
-        }
+        isLiked.toggle()
     }
 
 
     
     func setUpView() {
-
+        button.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(button)
         self.addSubview(label)
         
-        label.text = "0"
-        label.textColor = .red
+        button.topAnchor.constraint(equalTo: self.topAnchor, constant: -30).isActive = true
+        button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80).isActive = true
+        label.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: 40).isActive = true
+        label.topAnchor.constraint(equalTo: self.topAnchor, constant: -30).isActive = true
+        label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         
         button.addTarget(self, action: #selector(onPress), for: .touchUpInside)
     }
