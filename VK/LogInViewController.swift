@@ -13,8 +13,13 @@ class LogInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     @IBOutlet var scrollView: UIScrollView!
+    
+ 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         // Do any additional setup after loading the view.
         passwordTextField.isSecureTextEntry = true
         
@@ -86,7 +91,7 @@ class LogInViewController: UIViewController {
         guard let login = logInTextFIeld.text,
               let password = passwordTextField.text else{return false}
         
-        if login == "admin" && password == "123456" {
+        if login == "" && password == "" {
             return true
         } else {
             return false
