@@ -158,6 +158,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
     //MARK: - Search
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.keyboardType = .namePhonePad
         if searchText.isEmpty {
             filteredArray = sortedFriends
             filteredSectionArray = sectionArray

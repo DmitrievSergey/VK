@@ -56,6 +56,7 @@ class GroupsTableViewController: UITableViewController {
 }
 extension GroupsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.keyboardType = .namePhonePad
         if searchText.isEmpty {
             filteredGroupList = groupsList
         } else {
