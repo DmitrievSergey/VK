@@ -56,19 +56,23 @@ class ButtonLiked: UIView {
     func setUpView() {
         button.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        //self.addSubview(stackView)
 
         self.addSubview(button)
         self.addSubview(label)
+        
+        
        
 
         
 
         
-        button.topAnchor.constraint(equalTo: self.topAnchor, constant: -30).isActive = true
+        button.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-        button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80).isActive = true
-        label.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: 40).isActive = true
-        label.topAnchor.constraint(equalTo: self.topAnchor, constant: -30).isActive = true
+        button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        label.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: 35).isActive = true
+        label.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         

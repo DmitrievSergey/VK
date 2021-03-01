@@ -139,6 +139,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="nLg-hR-vuo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFf-eu-uYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="zwI-Se-MxB" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TE2-1i-5Vj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZoX-CD-N4a">
@@ -149,9 +150,9 @@
                     <connections>
                         <segue destination="egv-IY-ddt" kind="relationship" relationship="viewControllers" id="hkx-2b-PeT"/>
                         <segue destination="jU9-7Q-x8y" kind="relationship" relationship="viewControllers" id="vFo-hd-SH2"/>
+                        <segue destination="BTu-5e-RQZ" kind="relationship" relationship="viewControllers" id="Glo-Vi-evh"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gFf-eu-uYg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1010" y="-488"/>
         </scene>
@@ -173,6 +174,46 @@
             </objects>
             <point key="canvasLocation" x="-57" y="-488"/>
         </scene>
+        <!--News View Controller-->
+        <scene sceneID="mRF-VG-rEl">
+            <objects>
+                <viewController id="LF0-04-etf" userLabel="News View Controller" customClass="NewsViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Tt-eQ-kbA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MS5-Vx-gzd" userLabel="News Table View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomNewCell" id="Mw9-fz-djy" userLabel="News Table View Cell" customClass="CustomNewCell" customModule="VK" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mw9-fz-djy" id="7XJ-TY-nHx">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LF0-04-etf" id="NxQ-YQ-ofd"/>
+                                    <outlet property="delegate" destination="LF0-04-etf" id="pYc-t1-EBU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WDJ-lV-AC4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="trQ-zA-jWs"/>
+                    <connections>
+                        <outlet property="newsTableView" destination="MS5-Vx-gzd" id="nKt-sN-BHe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1al-sR-VDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536.25" y="418.75"/>
+        </scene>
         <!--Groups-->
         <scene sceneID="Xt7-CU-grq">
             <objects>
@@ -188,7 +229,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayg-5n-UbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="265"/>
+            <point key="canvasLocation" x="1936.875" y="265"/>
         </scene>
         <!--My Groups Table View Controller-->
         <scene sceneID="TJS-Mr-8Bp">
@@ -265,7 +306,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rri-dv-RqW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931.875" y="287.5"/>
+            <point key="canvasLocation" x="2926.875" y="287.5"/>
         </scene>
         <!--Groups Table View Controller-->
         <scene sceneID="tIx-X2-OJy">
@@ -349,7 +390,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9G-Dq-29R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rxl-Qh-qc3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="289"/>
+            <point key="canvasLocation" x="3847.5" y="288.75"/>
         </scene>
         <!--Friend Collection View Controller-->
         <scene sceneID="m5P-i1-m05">
@@ -513,10 +554,30 @@
             </objects>
             <point key="canvasLocation" x="858.75" y="-490"/>
         </scene>
+        <!--News-->
+        <scene sceneID="ye0-FF-0zu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BTu-5e-RQZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="MTr-Ld-OfA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iS6-R6-D4J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LF0-04-etf" kind="relationship" relationship="rootViewController" id="3YK-rF-wtF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJg-st-Qzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461.25" y="418.75"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Kate" width="700" height="525"/>
         <image name="close" width="64" height="64"/>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <image name="vkontakte-logo" width="512" height="512"/>
