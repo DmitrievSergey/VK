@@ -63,7 +63,7 @@ class MyGroupsTableViewController: UITableViewController {
         if segue.identifier == "addGroup" {
             guard let groupsTableViewController = segue.source as? GroupsTableViewController else {return}
             if let indexPath = groupsTableViewController.tableView.indexPathForSelectedRow{
-                let group = groupsTableViewController.groupsList[indexPath.row]
+                let group = groupsTableViewController.filteredGroupList[indexPath.row]
                 if !myGroupArray.contains(group){
                     myGroupArray.append(group)
                     tableView.reloadData()
@@ -72,3 +72,4 @@ class MyGroupsTableViewController: UITableViewController {
         }
     }
 }
+

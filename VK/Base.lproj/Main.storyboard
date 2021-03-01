@@ -162,7 +162,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill.badge.plus" catalog="system" selectedImage="person.fill.badge.plus" id="d4r-Nq-QrT"/>
                     <navigationItem key="navigationItem" id="vrK-xA-qjH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KQZ-vf-Mxq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -179,7 +179,7 @@
                 <navigationController id="jU9-7Q-x8y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="NFN-MP-7k6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TZO-DB-qa1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -275,9 +275,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="6Op-u4-JEq">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="gRT-6o-kAd" id="EFa-h5-LiU"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="72" id="ANN-T4-0Bv" customClass="GroupCellViewController" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="72"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ANN-T4-0Bv" id="FhT-2L-ruX">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
@@ -334,6 +342,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="meF-Ze-MgN"/>
+                    <connections>
+                        <outlet property="groupsTable" destination="TVf-rq-FAK" id="T4E-nD-HQr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9G-Dq-29R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rxl-Qh-qc3" userLabel="Exit" sceneMemberID="exit"/>
@@ -419,9 +430,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" systemColor="systemOrangeColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="S6b-Iz-kYh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="ybX-mg-uXf" id="94p-nk-PBM"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="68" id="XnI-bW-Lsh" customClass="FriendCellView" customModule="VK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XnI-bW-Lsh" id="e3F-ve-yMw" userLabel="FriendsListContentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
@@ -435,13 +454,13 @@
                                                         <constraint firstAttribute="width" secondItem="u5w-xK-Zvq" secondAttribute="height" multiplier="1:1" id="yC3-CX-ZQj"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="shColor">
-                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="shRadius">
-                                                            <real key="value" value="15"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" systemColor="systemOrangeColor"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="shOpacity">
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>

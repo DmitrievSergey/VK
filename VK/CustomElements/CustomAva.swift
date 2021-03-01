@@ -14,7 +14,7 @@ class CustomAva: UIView {
         //UIView = UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
     
     var cornerRadius: CGFloat {
-        get {return self.bounds.height / 2}
+        get {return self.bounds.size.width / 2}
         set {self.layer.cornerRadius  = newValue}
     }
     
@@ -69,11 +69,16 @@ class CustomAva: UIView {
     
     func setupView() {
         self.backgroundColor = .clear
+        
+
         self.addSubview(shadowView)
         self.addSubview(imageView)
         
         setupConstraint(shadowView)
         setupConstraint(imageView)
+    
+        
+
         
         shadowView.backgroundColor = .white
         shadowView.layer.shadowColor = shadowColor?.cgColor

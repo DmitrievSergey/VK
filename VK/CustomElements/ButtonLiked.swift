@@ -31,8 +31,12 @@ class ButtonLiked: UIView {
     
     
     var button: UIButton = UIButton(frame: .zero)
+    var buttonHeight: CGFloat = 20.0
     
     var label: UILabel = UILabel(frame: .zero)
+    var labelHeight: CGFloat = 20.0
+    
+    var stackView: UIStackView  = UIStackView(frame: .zero)
     
   
     func setInitButtonState () {
@@ -52,8 +56,13 @@ class ButtonLiked: UIView {
     func setUpView() {
         button.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
+
         self.addSubview(button)
         self.addSubview(label)
+       
+
+        
+
         
         button.topAnchor.constraint(equalTo: self.topAnchor, constant: -30).isActive = true
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
