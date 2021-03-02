@@ -7,14 +7,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell"
 
 class FriendCollectionViewController: UICollectionViewController {
     var displayedFriend: Friends?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         title = "\(displayedFriend?.friendName ?? "Anonym") Collection" 
 
     }
@@ -33,8 +33,6 @@ class FriendCollectionViewController: UICollectionViewController {
         if let friend = displayedFriend {
             return friend.friendCollection.count
         } else {return 0}
-        
-
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -20,6 +20,7 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Новости"
         newsTableView.register(UINib(nibName: CustomNewCell.nibName, bundle: nil), forCellReuseIdentifier: CustomNewCell.reuseIdentifier)
         
 
@@ -49,11 +50,15 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let new = newsArray[indexPath.row]
     
         
-        cell.avatarImage.imageView.image = UIImage(named: "unknown")
+        cell.avatarImage.imageView.image = UIImage(named: "Alex")
         cell.nameLabel.text = "Какой то текст"
         cell.configureLowBar()
         cell.textView.text = new.text
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
     }
 }

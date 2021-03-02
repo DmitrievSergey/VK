@@ -21,11 +21,11 @@
 		678788C225E296BE008C21D9 /* CustomAva.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678788C125E296BE008C21D9 /* CustomAva.swift */; };
 		67D15D6725ECD71A006E3C81 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D6625ECD71A006E3C81 /* NewsViewController.swift */; };
 		67D15D6A25ECD72F006E3C81 /* New.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D6925ECD72F006E3C81 /* New.swift */; };
-		67D15D6D25ECD749006E3C81 /* NewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D6C25ECD749006E3C81 /* NewViewCell.swift */; };
 		67D15D7325ED0455006E3C81 /* CustomNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D7125ED0455006E3C81 /* CustomNewCell.swift */; };
 		67D15D7425ED0455006E3C81 /* CustomNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D15D7225ED0455006E3C81 /* CustomNewCell.xib */; };
 		67D15D7825EDEE5B006E3C81 /* NewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D7625EDEE5B006E3C81 /* NewCollectionCell.swift */; };
 		67D15D7925EDEE5B006E3C81 /* NewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D15D7725EDEE5B006E3C81 /* NewCollectionCell.xib */; };
+		67D15D8625EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D15D8525EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift */; };
 		67E44FDC25D4D0AD007B8CC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDB25D4D0AD007B8CC4 /* AppDelegate.swift */; };
 		67E44FDE25D4D0AD007B8CC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDD25D4D0AD007B8CC4 /* SceneDelegate.swift */; };
 		67E44FE025D4D0AD007B8CC4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E44FDF25D4D0AD007B8CC4 /* LogInViewController.swift */; };
@@ -49,11 +49,11 @@
 		678788C125E296BE008C21D9 /* CustomAva.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAva.swift; sourceTree = "<group>"; };
 		67D15D6625ECD71A006E3C81 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		67D15D6925ECD72F006E3C81 /* New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New.swift; sourceTree = "<group>"; };
-		67D15D6C25ECD749006E3C81 /* NewViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewCell.swift; sourceTree = "<group>"; };
 		67D15D7125ED0455006E3C81 /* CustomNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNewCell.swift; sourceTree = "<group>"; };
 		67D15D7225ED0455006E3C81 /* CustomNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNewCell.xib; sourceTree = "<group>"; };
 		67D15D7625EDEE5B006E3C81 /* NewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionCell.swift; sourceTree = "<group>"; };
 		67D15D7725EDEE5B006E3C81 /* NewCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCollectionCell.xib; sourceTree = "<group>"; };
+		67D15D8525EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoCollectionViewLayout.swift; sourceTree = "<group>"; };
 		67E44FD825D4D0AD007B8CC4 /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E44FDB25D4D0AD007B8CC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E44FDD25D4D0AD007B8CC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,13 +127,21 @@
 			children = (
 				67D15D6625ECD71A006E3C81 /* NewsViewController.swift */,
 				67D15D6925ECD72F006E3C81 /* New.swift */,
-				67D15D6C25ECD749006E3C81 /* NewViewCell.swift */,
 				67D15D7125ED0455006E3C81 /* CustomNewCell.swift */,
 				67D15D7225ED0455006E3C81 /* CustomNewCell.xib */,
+				67D15D8325EE1BA5006E3C81 /* CellCollection */,
+				67D15D8525EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		67D15D8325EE1BA5006E3C81 /* CellCollection */ = {
+			isa = PBXGroup;
+			children = (
 				67D15D7625EDEE5B006E3C81 /* NewCollectionCell.swift */,
 				67D15D7725EDEE5B006E3C81 /* NewCollectionCell.xib */,
 			);
-			path = News;
+			path = CellCollection;
 			sourceTree = "<group>";
 		};
 		67E44FCF25D4D0AD007B8CC4 = {
@@ -252,7 +260,7 @@
 				6787884325DF6191008C21D9 /* MyGroupCellViewController.swift in Sources */,
 				6787883625DF52C6008C21D9 /* GroupCellViewController.swift in Sources */,
 				6787883C25DF531B008C21D9 /* Group.swift in Sources */,
-				67D15D6D25ECD749006E3C81 /* NewViewCell.swift in Sources */,
+				67D15D8625EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift in Sources */,
 				6787881925DE20F8008C21D9 /* FriendCollectionViewController.swift in Sources */,
 				6787880D25DE2018008C21D9 /* FriendsListViewController.swift in Sources */,
 				67E44FE025D4D0AD007B8CC4 /* LogInViewController.swift in Sources */,

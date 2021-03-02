@@ -54,6 +54,7 @@ class GroupsTableViewController: UITableViewController {
         return cell
     }
 }
+//TODO: - translate to ViewController
 extension GroupsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.keyboardType = .namePhonePad

@@ -27,6 +27,7 @@ class CustomNewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
         self.newPhotoCollectionView.dataSource = self
         self.newPhotoCollectionView.delegate = self
         self.newPhotoCollectionView.register(UINib(nibName: "NewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "NewCollectionCell")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -88,6 +89,7 @@ class CustomNewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
         {return UICollectionViewCell()}
         
         cell.imageNewCollectionCell.image = UIImage(named: "Alex")
+        
         
         return cell
     }

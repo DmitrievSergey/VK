@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class FriendsListViewController: UIViewController{
 
     private var gradient: CAGradientLayer!
@@ -65,6 +66,7 @@ class FriendsListViewController: UIViewController{
         filteredArray = sortedFriends
         friendTableView.dataSource = self
         friendTableView.delegate = self
+        friendTableView.contentInset = UIEdgeInsets(top: 56, left: 0, bottom: 0, right: 0)
         gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [UIColor.blue.cgColor, UIColor.systemGray6.cgColor]
@@ -145,7 +147,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellF = friendTableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView
+        let cellF = friendTableView.dequeueReusableCell(withIdentifier: "friendCell" , for: indexPath) as! FriendCellView
         let friend = filteredArray[indexPath.section][indexPath.row]
         
         cellF.configureAvatar(with: friend)
@@ -169,6 +171,10 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
         }
         friendTableView.reloadData()
     }
+    
+//    func position(for bar: UIBarPositioning) -> UIBarPosition {
+//        return .topAttached
+//    }
     //MARK: - Segue
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "ToFriendCollectionSegue",
