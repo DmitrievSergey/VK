@@ -8,6 +8,14 @@
 import UIKit
 
 class NewsViewController: UIViewController {
+    
+    let newsArray = [New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true),
+                     New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true),
+                     New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true),
+                     New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true),
+                     New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true),
+                     New(photoCollection: "Alex-collection", text: "Вот такие выходные были...А как у вас?", buttonLiked: true, buttonShared: true, buttonCommented: true, buttonViewed: true)
+    ]
 
     @IBOutlet weak var newsTableView: UITableView!
     override func viewDidLoad() {
@@ -32,18 +40,18 @@ class NewsViewController: UIViewController {
 }
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return newsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewCell.reuseIdentifier, for: indexPath) as? CustomNewCell else {return UITableViewCell()}
+        let new = newsArray[indexPath.row]
+        
         cell.avatarImage.imageView.image = UIImage(named: "unknown")
-        cell.buttonComented.setInitButtonState()
-        cell.buttonLiked.setInitButtonState()
-        cell.buttonShared.setInitButtonState()
-        cell.buttonViewed.setInitButtonState()
         cell.nameLabel.text = "Какой то текст"
-        cell.textView.text = "Some text"
+        
+        cell.configureLowBar()
+        cell.textView.text = new.text
         
         return cell
     }

@@ -148,8 +148,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
         let cellF = friendTableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView
         let friend = filteredArray[indexPath.section][indexPath.row]
         
-        cellF.friendNameLabel.text = friend.friendName
-        cellF.friendAvaImage.imageView.image = friend.friendAva
+        cellF.configureAvatar(with: friend)
         
         
         return cellF

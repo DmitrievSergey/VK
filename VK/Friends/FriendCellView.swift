@@ -22,6 +22,11 @@ class FriendCellView: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func configureAvatar ( with friend: Friends) {
+        friendNameLabel.text = friend.friendName
+        friendAvaImage.imageView.image = friend.friendAva
+    }
 
 }
 

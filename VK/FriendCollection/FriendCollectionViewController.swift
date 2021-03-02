@@ -41,7 +41,7 @@ class FriendCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCellCollection", for: indexPath) as! FriendCollectionCellView
         guard let friend = displayedFriend else {return UICollectionViewCell()}
         cell.imageCellCollection.image = UIImage(named: friend.friendCollection[indexPath.row])
-        cell.customButtonLiked.setInitButtonState()
+        cell.configureButtonLike()
         return cell
     }
 

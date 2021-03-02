@@ -32,4 +32,47 @@ class CustomNewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(with new: New) {
+        textView.text = new.text
+        nameLabel.text = "Какой то аватар"
+    }
+    
+    func configureLowBar () {
+        configureButtonLike()
+        configureButtonComented()
+        configureButtonShared()
+        configureButtonViewed()
+    }
+    
+    func configureButtonLike() {
+        buttonLiked.buttonOffImage = UIImage(systemName: "heart")!
+        buttonLiked.buttonOnImage = UIImage(systemName: "heart.fill")!
+        buttonLiked.isPressed = false
+        buttonLiked.countLabel.text = "0"
+        buttonLiked.countLabel.textColor = .red
+    }
+    
+    func configureButtonComented() {
+        buttonComented.buttonOffImage = UIImage(systemName: "checkmark.seal")!
+        buttonComented.buttonOnImage = UIImage(systemName: "checkmark.seal.fill")!
+        buttonComented.isPressed = false
+        buttonComented.countLabel.text = "0"
+        buttonComented.countLabel.textColor = .red
+    }
+    
+    func configureButtonShared() {
+        buttonShared.buttonOffImage = UIImage(systemName: "arrowshape.turn.up.right")!
+        buttonShared.buttonOnImage = UIImage(systemName: "arrowshape.turn.up.right.fill")!
+        buttonShared.isPressed = false
+        buttonShared.countLabel.text = "0"
+        buttonShared.countLabel.textColor = .red
+    }
+    
+    func configureButtonViewed() {
+        buttonViewed.buttonOffImage = UIImage(systemName: "eye")!
+        buttonViewed.buttonOnImage = UIImage(systemName: "eye.fill")!
+        buttonViewed.isPressed = false
+        buttonViewed.countLabel.text = "0"
+        buttonViewed.countLabel.textColor = .red
+    }
 }

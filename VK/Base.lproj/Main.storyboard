@@ -408,29 +408,42 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendCellCollection" id="0hc-Gg-heL" customClass="FriendCollectionCellView" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ePW-5e-9IM">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1dP-rx-cr8">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="168"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="156"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kate" translatesAutoresizingMaskIntoConstraints="NO" id="CZI-Im-wHz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CZI-Im-wHz">
+                                                    <rect key="frame" x="0.0" y="1.5" width="128" height="124.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="CZI-Im-wHz" secondAttribute="height" multiplier="1:1" id="Zbc-wx-qJu"/>
                                                         <constraint firstAttribute="height" constant="128" id="etM-j9-rOa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQI-gf-lLY" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="128" width="128" height="40"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="WhS-hQ-V2g"/>
-                                                    </constraints>
-                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="kav-eL-asm">
+                                                    <rect key="frame" x="0.0" y="128" width="128" height="28"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-Zw-SoX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="28"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="KlC-w6-xSX"/>
+                                                                <constraint firstAttribute="height" constant="28" id="XJY-iV-b0x"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQI-gf-lLY" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
+                                                            <rect key="frame" x="88" y="0.0" width="40" height="28"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="WhS-hQ-V2g"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -575,8 +588,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Kate" width="700" height="525"/>
         <image name="close" width="64" height="64"/>
+        <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
