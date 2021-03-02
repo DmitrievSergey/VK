@@ -39,6 +39,7 @@ class NewsViewController: UIViewController {
 
 }
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
@@ -46,10 +47,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomNewCell.reuseIdentifier, for: indexPath) as? CustomNewCell else {return UITableViewCell()}
         let new = newsArray[indexPath.row]
+    
         
         cell.avatarImage.imageView.image = UIImage(named: "unknown")
         cell.nameLabel.text = "Какой то текст"
-        
         cell.configureLowBar()
         cell.textView.text = new.text
         

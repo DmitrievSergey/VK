@@ -7,12 +7,13 @@
 
 import UIKit
 
-class CustomNewCell: UITableViewCell {
+class CustomNewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     static let reuseIdentifier = "CustomNewCell"
     static let nibName = "CustomNewCell"
     
 
+    @IBOutlet weak var newPhotoCollectionView: UICollectionView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImage: CustomAva!
@@ -23,7 +24,9 @@ class CustomNewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.newPhotoCollectionView.dataSource = self
+        self.newPhotoCollectionView.delegate = self
+        self.newPhotoCollectionView.register(UINib(nibName: "NewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "NewCollectionCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -75,4 +78,18 @@ class CustomNewCell: UITableViewCell {
         buttonViewed.countLabel.text = "0"
         buttonViewed.countLabel.textColor = .red
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewCollectionCell", for: indexPath) as? NewCollectionCell else
+        {return UICollectionViewCell()}
+        
+        cell.imageNewCollectionCell.image = UIImage(named: "Alex")
+        
+        return cell
+    }
 }
+

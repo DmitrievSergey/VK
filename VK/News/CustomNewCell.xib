@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomNewCell" id="KGk-i7-Jjw" customClass="CustomNewCell" customModule="VK" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="343" height="452"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="343" height="452"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkI-f1-8rq" userLabel="Liked Comments Share">
-                        <rect key="frame" x="8" y="304" width="327" height="36"/>
+                        <rect key="frame" x="8" y="408" width="327" height="36"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-97-gBH" userLabel="Liked" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
                                 <rect key="frame" x="4" y="4" width="40" height="28"/>
@@ -107,27 +107,38 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alen" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-gJ-7IQ">
-                        <rect key="frame" x="8" y="160" width="327" height="136"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gx6-1Q-5zD">
+                        <rect key="frame" x="8" y="160" width="327" height="240"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="136" id="WTU-5M-Z9L"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="7Tt-9g-PjG"/>
                         </constraints>
-                    </imageView>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="55m-vV-1e7">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="mCB-6F-0NB"/>
+                            <outlet property="delegate" destination="-1" id="Z1t-Re-3u5"/>
+                        </connections>
+                    </collectionView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7BS-pG-2cu" firstAttribute="top" secondItem="CUc-pq-ar0" secondAttribute="bottom" constant="8" symbolic="YES" id="09H-mr-FFw"/>
                     <constraint firstItem="jkI-f1-8rq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0DF-l4-ukg"/>
                     <constraint firstAttribute="trailing" secondItem="CUc-pq-ar0" secondAttribute="trailing" constant="8" id="9dV-DS-eBR"/>
+                    <constraint firstItem="Gx6-1Q-5zD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ARd-cr-Bgi"/>
+                    <constraint firstItem="Gx6-1Q-5zD" firstAttribute="top" secondItem="7BS-pG-2cu" secondAttribute="bottom" constant="8" symbolic="YES" id="EQm-uP-tXY"/>
                     <constraint firstAttribute="trailing" secondItem="jkI-f1-8rq" secondAttribute="trailing" constant="8" id="Gdz-En-r4K"/>
                     <constraint firstItem="CUc-pq-ar0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Kx1-d8-iNE"/>
                     <constraint firstItem="CUc-pq-ar0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MHm-qa-FtI"/>
-                    <constraint firstItem="jkI-f1-8rq" firstAttribute="top" secondItem="vgl-gJ-7IQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZbA-N7-pf3"/>
+                    <constraint firstItem="jkI-f1-8rq" firstAttribute="top" secondItem="Gx6-1Q-5zD" secondAttribute="bottom" constant="8" symbolic="YES" id="Nnf-sO-MgR"/>
+                    <constraint firstAttribute="trailing" secondItem="Gx6-1Q-5zD" secondAttribute="trailing" constant="8" id="cdN-7c-4Hu"/>
                     <constraint firstAttribute="trailing" secondItem="7BS-pG-2cu" secondAttribute="trailing" constant="8" id="fTu-Pd-b0q"/>
                     <constraint firstItem="7BS-pG-2cu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hZ2-uU-Qox"/>
                     <constraint firstAttribute="bottom" secondItem="jkI-f1-8rq" secondAttribute="bottom" constant="8" id="hua-Jy-bp5"/>
-                    <constraint firstItem="vgl-gJ-7IQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jFG-mu-sOJ"/>
-                    <constraint firstItem="vgl-gJ-7IQ" firstAttribute="top" secondItem="7BS-pG-2cu" secondAttribute="bottom" constant="8" symbolic="YES" id="jN8-FF-SM5"/>
-                    <constraint firstAttribute="trailing" secondItem="vgl-gJ-7IQ" secondAttribute="trailing" constant="8" id="vNM-Rm-c87"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -138,13 +149,13 @@
                 <outlet property="buttonShared" destination="g4g-vO-Hpf" id="HKV-W3-1mJ"/>
                 <outlet property="buttonViewed" destination="MwS-iP-NX8" id="upb-JC-LpI"/>
                 <outlet property="nameLabel" destination="g4j-JP-3lo" id="Aad-yS-zyb"/>
+                <outlet property="newPhotoCollectionView" destination="Gx6-1Q-5zD" id="oxx-FD-jxi"/>
                 <outlet property="textView" destination="7BS-pG-2cu" id="n4Q-aU-faz"/>
             </connections>
             <point key="canvasLocation" x="-263.4375" y="-121.25"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Alen" width="150" height="150"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
