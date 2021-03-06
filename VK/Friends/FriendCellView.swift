@@ -8,12 +8,15 @@
 import UIKit
 
 class FriendCellView: UITableViewCell {
+    
+    private var tap: UITapGestureRecognizer!
 
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendAvaImage: CustomAva!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        friendAvaImage.addGestureRecognizer(tap)
         
 
     }
@@ -25,7 +28,18 @@ class FriendCellView: UITableViewCell {
     
     func configureAvatar ( with friend: Friends) {
         friendNameLabel.text = friend.friendName
-        friendAvaImage.imageView.image = friend.friendAva
+        friendAvaImage.avaImage = friend.friendAva
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        tap = UITapGestureRecognizer(target: self, action: #selector(friendAvaImage.handleTap(_:)))
+        
+    }
+    
+    @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+        friendAvaImage.avaIsPressed = true
+        friendAvaImage.animateCustomAva()
     }
 
 }

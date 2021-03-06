@@ -15,18 +15,16 @@ class LogInViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     
  
-
+    @IBOutlet weak var loaderView: LoaderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // Do any additional setup after loading the view.
         passwordTextField.isSecureTextEntry = true
         
         // Жест нажатия
-                let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapView))
-                // Присваиваем его UIScrollVIew
-                scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapView))
+        // Присваиваем его UIScrollVIew
+        scrollView?.addGestureRecognizer(hideKeyboardGesture)
 
     }
     
@@ -45,6 +43,12 @@ class LogInViewController: UIViewController {
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loaderView.animateThreeDots(withDuration: 1, withDelay: 0.5, withAlpha: 0.5)
+    }
 
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
         scrollView.endEditing(true)

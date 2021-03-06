@@ -7,19 +7,22 @@
 
 import UIKit
 
-//private let reuseIdentifier = "Cell"
+
 
 class FriendCollectionViewController: UICollectionViewController {
     var displayedFriend: Friends?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+       
         title = "\(displayedFriend?.friendName ?? "Anonym") Collection" 
 
     }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
 
     // MARK: UICollectionViewDataSource
 

@@ -19,5 +19,10 @@ class FriendCollectionCellView: UICollectionViewCell {
         customButtonLiked.countLabel.textColor = .red
         customButtonLiked.isPressed = false
     }
+    
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
 
 }

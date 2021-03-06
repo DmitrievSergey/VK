@@ -51,7 +51,7 @@
                                                 <rect key="frame" x="20" y="20" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="A8X-h9-8hn"/>
-                                                    <constraint firstAttribute="width" constant="32" id="aaX-iI-2rY"/>
+                                                    <constraint firstAttribute="width" secondItem="fJO-Dg-Dep" secondAttribute="height" multiplier="1:1" id="DIe-Ac-bxA"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="close"/>
                                             </button>
@@ -70,17 +70,27 @@
                                                     <segue destination="zwI-Se-MxB" kind="presentation" identifier="ToTabBarController" modalPresentationStyle="fullScreen" id="dUn-iH-O2g"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7W-dc-lM2" customClass="LoaderView" customModule="VK" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="196" width="128" height="64"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="P7W-dc-lM2" firstAttribute="centerX" secondItem="QOB-rk-J61" secondAttribute="centerX" id="7mt-2o-Rxb"/>
+                                            <constraint firstItem="5T3-i6-1fk" firstAttribute="top" secondItem="P7W-dc-lM2" secondAttribute="bottom" constant="8" symbolic="YES" id="7rY-p6-1CQ"/>
                                             <constraint firstItem="5T3-i6-1fk" firstAttribute="top" secondItem="Uhw-pk-wFm" secondAttribute="bottom" constant="80" id="FMC-QM-J1a"/>
                                             <constraint firstItem="Uhw-pk-wFm" firstAttribute="centerX" secondItem="QOB-rk-J61" secondAttribute="centerX" id="Gl1-8K-8Xc"/>
+                                            <constraint firstItem="P7W-dc-lM2" firstAttribute="top" secondItem="Uhw-pk-wFm" secondAttribute="bottom" constant="8" symbolic="YES" id="JSK-KQ-i70"/>
                                             <constraint firstAttribute="bottom" secondItem="uwT-fp-8NZ" secondAttribute="bottom" constant="20" id="Pwf-1U-n1t"/>
                                             <constraint firstAttribute="trailing" secondItem="5T3-i6-1fk" secondAttribute="trailing" constant="20" symbolic="YES" id="Ti2-Ke-SQi"/>
                                             <constraint firstAttribute="trailing" secondItem="uwT-fp-8NZ" secondAttribute="trailing" constant="20" symbolic="YES" id="VlV-aa-a7h"/>
                                             <constraint firstItem="mwY-fF-APf" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" symbolic="YES" id="Xwx-Ey-SYN"/>
+                                            <constraint firstAttribute="trailing" secondItem="P7W-dc-lM2" secondAttribute="trailing" constant="150" id="aYD-b0-LYt"/>
                                             <constraint firstItem="5T3-i6-1fk" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" symbolic="YES" id="aYT-7E-QJx"/>
+                                            <constraint firstItem="P7W-dc-lM2" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="150" id="hRx-lo-DBB"/>
                                             <constraint firstItem="fJO-Dg-Dep" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" id="iYA-cu-vff"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fJO-Dg-Dep" secondAttribute="trailing" constant="20" symbolic="YES" id="jr4-bm-M7y"/>
                                             <constraint firstItem="mwY-fF-APf" firstAttribute="top" secondItem="5T3-i6-1fk" secondAttribute="bottom" id="khm-Wq-AKu"/>
                                             <constraint firstAttribute="trailing" secondItem="mwY-fF-APf" secondAttribute="trailing" constant="20" symbolic="YES" id="mPH-P8-Sqt"/>
                                             <constraint firstItem="Uhw-pk-wFm" firstAttribute="top" secondItem="QOB-rk-J61" secondAttribute="top" constant="60" id="nK3-fG-bU6"/>
@@ -122,6 +132,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loaderView" destination="P7W-dc-lM2" id="Hc6-vG-P5u"/>
                         <outlet property="logInTextFIeld" destination="5T3-i6-1fk" id="5WA-bm-tqD"/>
                         <outlet property="passwordTextField" destination="mwY-fF-APf" id="D3P-wX-y0J"/>
                         <outlet property="scrollView" destination="0Eh-0M-87S" id="USv-vK-8n5"/>
@@ -134,7 +145,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1803" y="-488"/>
+            <point key="canvasLocation" x="-1804.2056074766354" y="-488.55291576673869"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nLg-hR-vuo">
@@ -429,19 +440,18 @@
                                                         <constraint firstAttribute="height" constant="128" id="etM-j9-rOa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="kav-eL-asm">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="kav-eL-asm">
                                                     <rect key="frame" x="0.0" y="128" width="128" height="28"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-Zw-SoX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="28"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="KlC-w6-xSX"/>
                                                                 <constraint firstAttribute="height" constant="28" id="XJY-iV-b0x"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQI-gf-lLY" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                                            <rect key="frame" x="88" y="0.0" width="40" height="28"/>
+                                                            <rect key="frame" x="73" y="0.0" width="55" height="28"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="WhS-hQ-V2g"/>
