@@ -101,7 +101,7 @@ class ButtonLiked: UIView {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        stackView.spacing = 20
+        stackView.spacing = 5
         
         setupConstraints(button)
 
@@ -134,7 +134,7 @@ class ButtonLiked: UIView {
 
     }
     
-    private let viewWidth: CGFloat = 20.0
-    private let viewHeight: CGFloat = 20.0
+    private let viewWidth: CGFloat = 16.0
+    private let viewHeight: CGFloat = 16.0
 }
 

@@ -71,7 +71,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7W-dc-lM2" customClass="LoaderView" customModule="VK" customModuleProvider="target">
-                                                <rect key="frame" x="150" y="196" width="128" height="64"/>
+                                                <rect key="frame" x="154" y="196" width="120" height="64"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -84,11 +84,10 @@
                                             <constraint firstItem="P7W-dc-lM2" firstAttribute="top" secondItem="Uhw-pk-wFm" secondAttribute="bottom" constant="8" symbolic="YES" id="JSK-KQ-i70"/>
                                             <constraint firstAttribute="bottom" secondItem="uwT-fp-8NZ" secondAttribute="bottom" constant="20" id="Pwf-1U-n1t"/>
                                             <constraint firstAttribute="trailing" secondItem="5T3-i6-1fk" secondAttribute="trailing" constant="20" symbolic="YES" id="Ti2-Ke-SQi"/>
+                                            <constraint firstItem="P7W-dc-lM2" firstAttribute="width" secondItem="Uhw-pk-wFm" secondAttribute="width" multiplier="0.9375" id="VJC-XD-Iht"/>
                                             <constraint firstAttribute="trailing" secondItem="uwT-fp-8NZ" secondAttribute="trailing" constant="20" symbolic="YES" id="VlV-aa-a7h"/>
                                             <constraint firstItem="mwY-fF-APf" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" symbolic="YES" id="Xwx-Ey-SYN"/>
-                                            <constraint firstAttribute="trailing" secondItem="P7W-dc-lM2" secondAttribute="trailing" constant="150" id="aYD-b0-LYt"/>
                                             <constraint firstItem="5T3-i6-1fk" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" symbolic="YES" id="aYT-7E-QJx"/>
-                                            <constraint firstItem="P7W-dc-lM2" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="150" id="hRx-lo-DBB"/>
                                             <constraint firstItem="fJO-Dg-Dep" firstAttribute="leading" secondItem="QOB-rk-J61" secondAttribute="leading" constant="20" id="iYA-cu-vff"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fJO-Dg-Dep" secondAttribute="trailing" constant="20" symbolic="YES" id="jr4-bm-M7y"/>
                                             <constraint firstItem="mwY-fF-APf" firstAttribute="top" secondItem="5T3-i6-1fk" secondAttribute="bottom" id="khm-Wq-AKu"/>
@@ -444,14 +443,21 @@
                                                     <rect key="frame" x="0.0" y="128" width="128" height="28"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-Zw-SoX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="28"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="XJY-iV-b0x"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-Rq-IR7">
+                                                            <rect key="frame" x="48.666666666666664" y="0.0" width="30.666666666666664" height="28"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="wv4-oR-3Ox"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQI-gf-lLY" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                                            <rect key="frame" x="73" y="0.0" width="55" height="28"/>
+                                                            <rect key="frame" x="97.333333333333329" y="0.0" width="30.666666666666671" height="28"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="WhS-hQ-V2g"/>
