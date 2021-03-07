@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
-            loaderView.stopAnimation()
+            //loaderView.stopAnimation()
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
@@ -103,7 +103,7 @@ class LogInViewController: UIViewController {
         guard let login = logInTextFIeld.text,
               let password = passwordTextField.text else{return false}
         
-        if login == "1" && password == "1" {
+        if login == "" && password == "" {
 
             return true
         } else {
