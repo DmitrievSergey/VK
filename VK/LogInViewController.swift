@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
-            
+            loaderView.stopAnimation()
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
@@ -49,13 +49,20 @@ class LogInViewController: UIViewController {
         
         loaderView.animateThreeDots(withDuration: 1, withDelay: 0.5, withAlpha: 0.5)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
+    
+    
 
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
         scrollView.endEditing(true)
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        
+
     }
     
     @objc func keyboardWasShown(notification: Notification) {
@@ -85,6 +92,7 @@ class LogInViewController: UIViewController {
         let checkResult = checkUserData()
         
         if !checkResult {
+            
             showLoginError()
         }
         
@@ -95,9 +103,11 @@ class LogInViewController: UIViewController {
         guard let login = logInTextFIeld.text,
               let password = passwordTextField.text else{return false}
         
-        if login == "" && password == "" {
+        if login == "1" && password == "1" {
+
             return true
         } else {
+
             return false
         }
     }

@@ -17,7 +17,12 @@ class LoaderView: UIView {
     private let dotViewWidth: CGFloat = 10.0
     private let dotViewHeight: CGFloat = 10.0
     
-
+    func stopAnimation () {
+        firstDotView.layer.removeAllAnimations()
+        secondDotView.layer.removeAllAnimations()
+        thirdDotView.layer.removeAllAnimations()
+        dotsStackView.layer.removeAllAnimations()
+    }
     
     func setUpViews() {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +72,7 @@ class LoaderView: UIView {
                 self.firstDotView.bounds = CGRect(x: Int(self.firstDotView.bounds.width)/2, y: Int(self.firstDotView.bounds.height)/2, width: 1, height: 1)},
             completion: { [self]
                 finished in
-                animateSecondDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
+                //animateSecondDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
             }
         )
     }
@@ -82,7 +87,7 @@ class LoaderView: UIView {
                 self.secondDotView.bounds = CGRect(x: Int(self.secondDotView.bounds.width)/2, y: Int(self.secondDotView.bounds.height)/2, width: 1, height: 1)},
             completion: { [self]
                 finished in
-                animateThirdDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
+                //animateThirdDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
             }
         )
     }
@@ -97,7 +102,7 @@ class LoaderView: UIView {
                 self.thirdDotView.bounds = CGRect(x: Int(self.thirdDotView.bounds.width)/2, y: Int(self.thirdDotView.bounds.height)/2, width: 1, height: 1)},
             completion: { [self]
                 finished in
-                animateFirstDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
+                //animateFirstDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
             }
         )
     }
