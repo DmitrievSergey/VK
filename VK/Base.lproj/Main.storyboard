@@ -432,7 +432,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1dP-rx-cr8">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="156"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CZI-Im-wHz">
+                                                <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CZI-Im-wHz">
                                                     <rect key="frame" x="0.0" y="2" width="128" height="124"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="CZI-Im-wHz" secondAttribute="height" multiplier="1:1" id="Zbc-wx-qJu"/>
@@ -478,6 +478,7 @@
                                 <connections>
                                     <outlet property="customButtonLiked" destination="kQI-gf-lLY" id="dvK-Il-uox"/>
                                     <outlet property="imageCellCollection" destination="CZI-Im-wHz" id="ejw-Qm-iha"/>
+                                    <segue destination="djs-3d-Ca6" kind="show" identifier="zoomFriendCollection" id="8Dz-5A-uCr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -487,10 +488,50 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="KET-Zx-d4n"/>
+                    <connections>
+                        <outlet property="friendCollectionView" destination="sEM-JM-qnn" id="IaH-Vc-SnG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tl-od-YAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1783" y="-488"/>
+        </scene>
+        <!--Zoom Friend Collection View Controller-->
+        <scene sceneID="3uc-B5-5Ug">
+            <objects>
+                <viewController id="djs-3d-Ca6" customClass="ZoomFriendCollectionViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5QL-96-lWO">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Alex" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-sf-PBf">
+                                <rect key="frame" x="0.0" y="88" width="428" height="755"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZIm-s7-DHn" appends="YES" id="zIL-T6-wjK"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ylf-Ls-kqN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2zf-sf-PBf" firstAttribute="trailing" secondItem="ylf-Ls-kqN" secondAttribute="trailing" id="B6K-aA-eNd"/>
+                            <constraint firstItem="2zf-sf-PBf" firstAttribute="top" secondItem="ylf-Ls-kqN" secondAttribute="top" id="B75-LR-kOg"/>
+                            <constraint firstItem="2zf-sf-PBf" firstAttribute="leading" secondItem="ylf-Ls-kqN" secondAttribute="leading" id="Rod-2w-1oR"/>
+                            <constraint firstItem="2zf-sf-PBf" firstAttribute="bottom" secondItem="ylf-Ls-kqN" secondAttribute="bottom" id="ttY-tb-9lc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oi4-nC-iIc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="E0r-GO-sSC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="zoomFriendImage" destination="2zf-sf-PBf" id="med-83-OiA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLM-2t-CpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="ZIm-s7-DHn"/>
+            </objects>
+            <point key="canvasLocation" x="2562.6168224299063" y="-489.20086393088559"/>
         </scene>
         <!--Friends List View Controller-->
         <scene sceneID="Uht-VU-lei">
@@ -613,6 +654,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Alex" width="700" height="564"/>
         <image name="close" width="64" height="64"/>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>

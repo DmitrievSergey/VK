@@ -70,10 +70,7 @@ class LoaderView: UIView {
             animations: {
                 self.firstDotView.alpha = self.alphaV
                 self.firstDotView.bounds = CGRect(x: Int(self.firstDotView.bounds.width)/2, y: Int(self.firstDotView.bounds.height)/2, width: 1, height: 1)},
-            completion: { [self]
-                finished in
-                //animateSecondDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
-            }
+            completion: nil
         )
     }
     
@@ -85,10 +82,7 @@ class LoaderView: UIView {
             animations: {
                 self.secondDotView.alpha = self.alphaV
                 self.secondDotView.bounds = CGRect(x: Int(self.secondDotView.bounds.width)/2, y: Int(self.secondDotView.bounds.height)/2, width: 1, height: 1)},
-            completion: { [self]
-                finished in
-                //animateThirdDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
-            }
+            completion: nil
         )
     }
     
@@ -100,10 +94,7 @@ class LoaderView: UIView {
             animations: {
                 self.thirdDotView.alpha = self.alphaV
                 self.thirdDotView.bounds = CGRect(x: Int(self.thirdDotView.bounds.width)/2, y: Int(self.thirdDotView.bounds.height)/2, width: 1, height: 1)},
-            completion: { [self]
-                finished in
-                //animateFirstDot(withDuration: duration, withDelay: delay, withAlpha: alphaV)
-            }
+            completion: nil
         )
     }
     
