@@ -64,9 +64,31 @@ class FriendCollectionViewController: UICollectionViewController {
             let indexPath = self.friendCollectionView.indexPath(for: cell),
             let zoomImageView = segue.destination as? ZoomFriendCollectionViewController {
                 selectedImage = UIImage(named: (friend.friendCollection[indexPath.row]))
-                zoomImageView.Image = selectedImage
-                zoomImageView.images = friend.friendCollection
-                zoomImageView.currentImageName = friend.friendCollection[indexPath.row]
+                
+//                zoomImageView.currentImage.title = friend.friendCollection[indexPath.row]
+//                print("zoomImageView.currentImage.title = \(zoomImageView.currentImage.title)")
+//                zoomImageView.currentImage.imageName = friend.friendCollection[indexPath.row]
+//                print("zoomImageView.currentImage.imageName = \(zoomImageView.currentImage.imageName)")
+                
+                for item in friend.friendCollection {
+                    var friendItem = FriendsCellItem()
+//                    friendItem.imageName = item
+//                    friendItem.title = item
+                    if item == friend.friendCollection[indexPath.row] {
+                        friendItem = FriendsCellItem(imageNamed: item, title: item, isImageCurrent: true)
+                       // print("Item = \(item) + \(friendItem.imageName) + \(friendItem.title)")
+                    } else {
+                        friendItem = FriendsCellItem(imageNamed: item, title: item, isImageCurrent: false)
+                        //print(friendItem.description)
+                    }
+                    zoomImageView.images.append(friendItem)
+                }
+                
+                
+                
+                
+                //zoomImageView.currentImageName = friend.friendCollection[indexPath.row]
+                //zoomImageView.Image = selectedImage
 
             }
         }

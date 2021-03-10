@@ -11,12 +11,13 @@ class ZoomFriendCollectionViewController: UIViewController {
     
     var swipeLeft: UISwipeGestureRecognizer!
     var swipeRight: UISwipeGestureRecognizer!
-    private var tap: UITapGestureRecognizer!
     
-    var Image: UIImage!
-    var images: [String]!
-    var currentImageName: String!
+    var myCurrentView = [FriendsCellItem]()
+    var index = 0
+    var myViews = [FriendsCellItem]()
+    
 
+    var images = [FriendsCellItem] ()
 
     
     @IBOutlet weak var zoomFriendImage: UIImageView!
@@ -24,7 +25,8 @@ class ZoomFriendCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        zoomFriendImage.image = Image
+
+        view.backgroundColor = .black
         swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeLeft.direction = .left
         view.addGestureRecognizer(swipeLeft)
@@ -32,74 +34,124 @@ class ZoomFriendCollectionViewController: UIViewController {
         swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
-//        view.addGestureRecognizer(swipe)
-//        swipe.direction = [.left, .right, .down, .up]
-        view.addGestureRecognizer(tap)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
+        for image in images {
+            image.layer.anchorPoint.y = 0.0
+            image.frame = view.bounds
+            view.addSubview(image)
+        }
+        
+
+        
+        for (index, subview) in view.subviews.enumerated() {
+            guard let image = subview as? FriendsCellItem else {continue}
+            if image.currentImage == true {
+                navigationItem.title = image.imageName
+                view.bringSubviewToFront(image)
+                
+            }
+        }
+        myViews = view.subviews.compactMap({$0 as? FriendsCellItem}).sorted(by: {$0.imageName < $1.imageName})
+        myCurrentView = myViews.filter({$0.currentImage == true})
+        index = myViews.lastIndex(of: myCurrentView[0]) ?? 0
+        
+        
+
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         self.swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
-        tap = UITapGestureRecognizer(target: self, action: #selector(onTap(_:)))
         
     }
     
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+        myViews = view.subviews.compactMap({$0 as? FriendsCellItem}).sorted(by: {$0.imageName < $1.imageName})
+        myCurrentView = myViews.filter({$0.currentImage == true})
+        index = myViews.lastIndex(of: myCurrentView[0]) ?? 0
+        
+        
+        for view in myViews {
+            print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
+        }
+       
+
         if gesture.direction == UISwipeGestureRecognizer.Direction.right {
                 print("Swipe Right")
-            
-            var currentIndex = getCurrentIndexByName(currentImageName)
-            if currentIndex == images.count - 1 {
-                currentIndex = 0
-                currentImageName = images[0]
-                zoomFriendImage.image = UIImage(named: currentImageName)
+            print(index)
+            print(myViews.count - 1)
+            if index == 0 {
+                myViews[index].currentImage = false
+                myViews[myViews.count - 1].currentImage = true
+                myCurrentView = myViews.filter({$0.currentImage == true})
+                navigationItem.title = myCurrentView[0].title
+                view.bringSubviewToFront(myCurrentView[0])
+  
             } else {
-                currentIndex += 1
-                currentImageName = images[currentIndex]
-                zoomFriendImage.image = UIImage(named: currentImageName)
-            }
 
-        }
-        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+                myViews[index].currentImage = false
+                print(myViews[index])
+                print(myCurrentView)
+                myViews[index - 1].currentImage = true
+                myCurrentView = myViews.filter({$0.currentImage == true})
+                print(myViews[index - 1])
+                print(myCurrentView)
+                navigationItem.title = myCurrentView[0].title
+                view.bringSubviewToFront(myCurrentView[0])
+            }
+            for view in myViews {
+                print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
+            }
+        }else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
                 print("Swipe Left")
-            var currentIndex = getCurrentIndexByName(currentImageName)
-            if currentIndex == 0 {
-                currentIndex = images.count - 1
-                currentImageName = images[currentIndex]
-                zoomFriendImage.image = UIImage(named: currentImageName)
+            print(index)
+            print(myViews.count - 1)
+            if index == myViews.count - 1 {
+                myViews[index].currentImage = false
+                myViews[0].currentImage = true
+                myCurrentView = myViews.filter({$0.currentImage == true})
+                navigationItem.title = myCurrentView[0].title
+                view.bringSubviewToFront(myCurrentView[0])
+  
             } else {
-                currentIndex -= 1
-                currentImageName = images[currentIndex]
-                zoomFriendImage.image = UIImage(named: currentImageName)
-            }
 
+                myViews[index].currentImage = false
+                print(myViews[index])
+                print(myCurrentView)
+                myViews[index + 1].currentImage = true
+                myCurrentView = myViews.filter({$0.currentImage == true})
+                print(myViews[index + 1])
+                print(myCurrentView)
+                navigationItem.title = myCurrentView[0].title
+                view.bringSubviewToFront(myCurrentView[0])
+            }
+            for view in myViews {
+                print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
             }
 
         }
-    
-    @objc func onTap(_ gesture: UITapGestureRecognizer) {
 
     }
     
-    func getCurrentIndexByName(_ name: String) -> Int{
-        var currentIndex = 0
-        for i in 0...images.count - 1  {
-            if name == images[i] {
-                currentIndex = i
-                break
-            }
-        }
-        return currentIndex
-    }
+
+    
+//    func getCurrentIndexByName(_ name: String) -> Int{
+//        var currentIndex = 0
+//        for i in 0...images.count - 1  {
+//            if name == images[i] {
+//                currentIndex = i
+//                break
+//            }
+//        }
+//        return currentIndex
+//    }
     
 }
 
