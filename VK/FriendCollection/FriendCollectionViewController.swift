@@ -10,11 +10,16 @@ import UIKit
 
 
 class FriendCollectionViewController: UICollectionViewController {
+
+    var selectedImage: UIImage!
+    var collectionImages: [UIImage]!
     var displayedFriend: Friends?
+    
+    @IBOutlet var friendCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
         title = "\(displayedFriend?.friendName ?? "Anonym") Collection" 
 
     }
@@ -45,5 +50,47 @@ class FriendCollectionViewController: UICollectionViewController {
         cell.configureButtonLike()
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+    }
+
+    
+    //MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "zoomFriendCollection" {
+            let cell = sender as! FriendCollectionCellView
+            if let friend = displayedFriend,
+            let indexPath = self.friendCollectionView.indexPath(for: cell),
+            let zoomImageView = segue.destination as? ZoomFriendCollectionViewController {
+                selectedImage = UIImage(named: (friend.friendCollection[indexPath.row]))
+                
+//                zoomImageView.currentImage.title = friend.friendCollection[indexPath.row]
+//                print("zoomImageView.currentImage.title = \(zoomImageView.currentImage.title)")
+//                zoomImageView.currentImage.imageName = friend.friendCollection[indexPath.row]
+//                print("zoomImageView.currentImage.imageName = \(zoomImageView.currentImage.imageName)")
+                
+                for item in friend.friendCollection {
+                    var friendItem = FriendsCellItem()
+//                    friendItem.imageName = item
+//                    friendItem.title = item
+                    if item == friend.friendCollection[indexPath.row] {
+                        friendItem = FriendsCellItem(imageNamed: item, title: item, isImageCurrent: true)
+                       // print("Item = \(item) + \(friendItem.imageName) + \(friendItem.title)")
+                    } else {
+                        friendItem = FriendsCellItem(imageNamed: item, title: item, isImageCurrent: false)
+                        //print(friendItem.description)
+                    }
+                    zoomImageView.images.append(friendItem)
+                }
+                
+                
+                
+                
+                //zoomImageView.currentImageName = friend.friendCollection[indexPath.row]
+                //zoomImageView.Image = selectedImage
+
+            }
+        }
+    }
 }
