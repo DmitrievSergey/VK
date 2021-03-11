@@ -63,37 +63,47 @@ class LoaderView: UIView {
     }
     
     func animateFirstDot (withDuration duration: TimeInterval, withDelay delay: TimeInterval, withAlpha alphaV: CGFloat) {
+        firstDotView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         UIView.animate(
             withDuration: duration,
             delay: delay,
             options: [.repeat, .autoreverse],
             animations: {
                 self.firstDotView.alpha = self.alphaV
-                self.firstDotView.bounds = CGRect(x: Int(self.firstDotView.bounds.width)/2, y: Int(self.firstDotView.bounds.height)/2, width: 1, height: 1)},
+                //self.firstDotView.bounds = CGRect(x: Int(self.firstDotView.bounds.width)/2, y: Int(self.firstDotView.bounds.height)/2, width: 1, height: 1)
+                self.firstDotView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                
+            },
             completion: nil
         )
     }
     
     func animateSecondDot (withDuration duration: TimeInterval, withDelay delay: TimeInterval, withAlpha alphaV: CGFloat) {
+        secondDotView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         UIView.animate(
             withDuration: duration,
             delay: delay + 0.5,
             options: [.repeat, .autoreverse],
             animations: {
                 self.secondDotView.alpha = self.alphaV
-                self.secondDotView.bounds = CGRect(x: Int(self.secondDotView.bounds.width)/2, y: Int(self.secondDotView.bounds.height)/2, width: 1, height: 1)},
+                //self.secondDotView.bounds = CGRect(x: Int(self.secondDotView.bounds.width)/2, y: Int(self.secondDotView.bounds.height)/2, width: 1, height: 1)
+                self.secondDotView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            },
             completion: nil
         )
     }
     
     func animateThirdDot (withDuration duration: TimeInterval, withDelay delay: TimeInterval, withAlpha alphaV: CGFloat) {
+        thirdDotView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         UIView.animate(
             withDuration: duration,
             delay: delay + 1,
             options: [.repeat, .autoreverse],
             animations: {
                 self.thirdDotView.alpha = self.alphaV
-                self.thirdDotView.bounds = CGRect(x: Int(self.thirdDotView.bounds.width)/2, y: Int(self.thirdDotView.bounds.height)/2, width: 1, height: 1)},
+                //self.thirdDotView.bounds = CGRect(x: Int(self.thirdDotView.bounds.width)/2, y: Int(self.thirdDotView.bounds.height)/2, width: 1, height: 1)
+                self.thirdDotView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            },
             completion: nil
         )
     }
