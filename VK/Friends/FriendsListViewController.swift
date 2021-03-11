@@ -124,7 +124,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(40)
-        //return CGFloat.leastNonzeroMagnitude
+     
     }
 
     
@@ -156,6 +156,30 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
         return cellF
     }
     
+    override func didReceiveMemoryWarning() {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 3, animations: {
+              cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
+              },completion: { finished in
+                UIView.animate(withDuration: 0.1, animations: {
+                      cell.layer.transform = CATransform3DMakeScale(1,1,1)
+                  })
+          })
+//        cell.contentView.layer.opacity = 0.1
+//        cell.transform = CGAffineTransform(scaleX: 1, y : 0)
+//                UIView.animate(withDuration: 3, animations: {
+//                    cell.transform = CGAffineTransform(scaleX: 1, y : 1)
+//                    cell.contentView.layer.opacity = 1
+//                })
+    }
+    
+
+    
     //MARK: - Search
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -172,9 +196,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
         friendTableView.reloadData()
     }
     
-//    func position(for bar: UIBarPositioning) -> UIBarPosition {
-//        return .topAttached
-//    }
+
     //MARK: - Segue
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "ToFriendCollectionSegue",
@@ -191,3 +213,5 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
           tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+

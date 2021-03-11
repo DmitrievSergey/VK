@@ -51,29 +51,29 @@
                         <rect key="frame" x="8" y="408" width="327" height="36"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-97-gBH" userLabel="Liked" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="4" y="4" width="40" height="28"/>
+                                <rect key="frame" x="4" y="4" width="42" height="28"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="9tn-uX-T1K"/>
+                                    <constraint firstAttribute="width" constant="42" id="9tn-uX-T1K"/>
                                     <constraint firstAttribute="height" constant="28" id="Cp9-Rg-rXi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBb-OV-6RS" userLabel="Comented" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="64" y="4" width="40" height="28"/>
+                                <rect key="frame" x="76" y="4" width="42" height="28"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="kgb-mU-xlH"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-vO-Hpf" userLabel="Shared" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="124" y="4" width="40" height="28"/>
+                                <rect key="frame" x="148" y="4" width="42" height="28"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="DYr-zs-oXS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwS-iP-NX8" userLabel="Viewed" customClass="ButtonLiked" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="283" y="4" width="40" height="28"/>
+                                <rect key="frame" x="281" y="4" width="42" height="28"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="VP3-oR-tpL"/>
@@ -86,11 +86,11 @@
                             <constraint firstItem="b2S-97-gBH" firstAttribute="leading" secondItem="jkI-f1-8rq" secondAttribute="leading" constant="4" id="5Gf-xE-V5H"/>
                             <constraint firstItem="g4g-vO-Hpf" firstAttribute="top" secondItem="jkI-f1-8rq" secondAttribute="top" constant="4" id="C7M-ya-bA1"/>
                             <constraint firstItem="MwS-iP-NX8" firstAttribute="top" secondItem="jkI-f1-8rq" secondAttribute="top" constant="4" id="JBX-zd-adO"/>
-                            <constraint firstItem="rBb-OV-6RS" firstAttribute="leading" secondItem="b2S-97-gBH" secondAttribute="trailing" constant="20" id="KVS-ax-lAW"/>
+                            <constraint firstItem="rBb-OV-6RS" firstAttribute="leading" secondItem="b2S-97-gBH" secondAttribute="trailing" constant="30" id="KVS-ax-lAW"/>
                             <constraint firstAttribute="height" constant="36" id="L8j-S7-re3"/>
                             <constraint firstItem="MwS-iP-NX8" firstAttribute="width" secondItem="b2S-97-gBH" secondAttribute="width" id="VtY-Qs-IJy"/>
                             <constraint firstItem="g4g-vO-Hpf" firstAttribute="width" secondItem="b2S-97-gBH" secondAttribute="width" id="WmQ-1Y-wJX"/>
-                            <constraint firstItem="g4g-vO-Hpf" firstAttribute="leading" secondItem="rBb-OV-6RS" secondAttribute="trailing" constant="20" id="ZEz-3U-xw3"/>
+                            <constraint firstItem="g4g-vO-Hpf" firstAttribute="leading" secondItem="rBb-OV-6RS" secondAttribute="trailing" constant="30" id="ZEz-3U-xw3"/>
                             <constraint firstItem="rBb-OV-6RS" firstAttribute="top" secondItem="jkI-f1-8rq" secondAttribute="top" constant="4" id="f2t-uA-8fJ"/>
                             <constraint firstAttribute="trailing" secondItem="MwS-iP-NX8" secondAttribute="trailing" constant="4" id="i5d-7z-hSe"/>
                             <constraint firstItem="rBb-OV-6RS" firstAttribute="width" secondItem="b2S-97-gBH" secondAttribute="width" id="oay-f1-oGQ"/>

@@ -50,12 +50,16 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let new = newsArray[indexPath.row]
     
         
-        cell.avatarImage.imageView.image = UIImage(named: "Alex")
+        cell.avatarImage.avaImage = UIImage(named: "Alex")!
         cell.nameLabel.text = "Какой то текст"
         cell.configureLowBar()
         cell.textView.text = new.text
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

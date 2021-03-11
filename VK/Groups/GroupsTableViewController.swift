@@ -49,7 +49,7 @@ class GroupsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCellViewController
 
         cell.groupCellLabel.text = filteredGroupList[indexPath.row].groupName
-        cell.groupCellImage.imageView.image = UIImage(named: filteredGroupList[indexPath.row].groupAva)
+        cell.groupCellImage.avaImage = UIImage(named: filteredGroupList[indexPath.row].groupAva)!
 
         return cell
     }
