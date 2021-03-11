@@ -9,6 +9,7 @@ import UIKit
 
 class ZoomFriendCollectionViewController: UIViewController {
     
+    var interactiveAnimator: UIViewPropertyAnimator!
     var swipeLeft: UISwipeGestureRecognizer!
     var swipeRight: UISwipeGestureRecognizer!
     
@@ -41,7 +42,9 @@ class ZoomFriendCollectionViewController: UIViewController {
         
         
         for image in images {
-            image.layer.anchorPoint.y = 0.0
+            image.layer.anchorPoint.x = 0.0
+            image.layer.isHidden = true
+            //image.layer.anchorPoint.y = 0.0
             image.frame = view.bounds
             view.addSubview(image)
         }
@@ -52,6 +55,7 @@ class ZoomFriendCollectionViewController: UIViewController {
             guard let image = subview as? FriendsCellItem else {continue}
             if image.currentImage == true {
                 navigationItem.title = image.imageName
+                image.layer.isHidden = false
                 view.bringSubviewToFront(image)
                 
             }
@@ -71,6 +75,68 @@ class ZoomFriendCollectionViewController: UIViewController {
         
     }
     
+
+    
+    fileprivate func animatedFromLeft() {
+        //animation bring to back
+        
+        //animation bring to front
+        myCurrentView[0].layer.isHidden = false
+        let moveView = CGAffineTransform(translationX: -view.bounds.width , y: 0)
+        let scaleView = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        let movePreviosView = CGAffineTransform(translationX: 2 * view.bounds.width , y: 0)
+        let scalePreviosView = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        myViews[index].transform = CGAffineTransform(translationX: view.bounds.width / 20, y: 0)
+        myCurrentView[0].transform = scaleView.concatenating(moveView)
+        
+        
+        UIView.animate(
+            withDuration: 3,
+            delay: 0,
+            options: .curveEaseInOut,
+            animations: { [self] in
+                myViews[index].transform = scalePreviosView.concatenating(movePreviosView)
+                myCurrentView[0].transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
+                myCurrentView[0].transform = .identity
+                //[index].transform = .identity
+                
+            },
+            completion: { [self] _ in
+                self.myCurrentView[0].transform = .identity
+                self.myViews[index].transform = .identity
+                self.myViews[index].layer.isHidden = true
+                
+            }
+        )
+    }
+    
+    fileprivate func animatedFromRight() {
+        //Animation bring tto front
+        //myCurrentView[0].transform = CGAffineTransform(translationX: 2 * view.bounds.width, y: 0)
+        myCurrentView[0].layer.isHidden = false
+        let moveView = CGAffineTransform(translationX: view.bounds.width , y: 0)
+        let scaleView = CGAffineTransform(scaleX: 1, y: 0.5)
+        let movePreviosView = CGAffineTransform(translationX: -2 * view.bounds.width , y: 0)
+        let scalePreviosView = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        myViews[index].transform = CGAffineTransform(translationX: -view.bounds.width / 20, y: 0)
+        myCurrentView[0].transform = scaleView.concatenating(moveView)
+        
+        UIView.animate(
+            withDuration: 3,
+            delay: 0,
+            options: .curveEaseInOut,
+            animations: { [self] in
+                myViews[index].transform = scalePreviosView.concatenating(movePreviosView)
+                myCurrentView[0].transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
+                myCurrentView[0].transform = .identity
+            },
+            completion: { [self] _ in
+                self.myCurrentView[0].transform = .identity
+                self.myViews[index].transform = .identity
+                self.myViews[index].layer.isHidden = true
+            }
+        )
+    }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer){
         myViews = view.subviews.compactMap({$0 as? FriendsCellItem}).sorted(by: {$0.imageName < $1.imageName})
@@ -91,25 +157,23 @@ class ZoomFriendCollectionViewController: UIViewController {
                 myViews[index].currentImage = false
                 myViews[myViews.count - 1].currentImage = true
                 myCurrentView = myViews.filter({$0.currentImage == true})
+                //Animation
+                animatedFromLeft()
+                // End animation
                 navigationItem.title = myCurrentView[0].title
                 view.bringSubviewToFront(myCurrentView[0])
   
             } else {
 
                 myViews[index].currentImage = false
-                print(myViews[index])
-                print(myCurrentView)
                 myViews[index - 1].currentImage = true
                 myCurrentView = myViews.filter({$0.currentImage == true})
-                print(myViews[index - 1])
-                print(myCurrentView)
+                animatedFromLeft()
+                //End Animation
                 navigationItem.title = myCurrentView[0].title
                 view.bringSubviewToFront(myCurrentView[0])
             }
-            for view in myViews {
-                print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
-            }
-        }else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+        } else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
                 print("Swipe Left")
             print(index)
             print(myViews.count - 1)
@@ -117,41 +181,26 @@ class ZoomFriendCollectionViewController: UIViewController {
                 myViews[index].currentImage = false
                 myViews[0].currentImage = true
                 myCurrentView = myViews.filter({$0.currentImage == true})
+                animatedFromRight()
+                //End animation
                 navigationItem.title = myCurrentView[0].title
                 view.bringSubviewToFront(myCurrentView[0])
   
             } else {
 
                 myViews[index].currentImage = false
-                print(myViews[index])
-                print(myCurrentView)
                 myViews[index + 1].currentImage = true
                 myCurrentView = myViews.filter({$0.currentImage == true})
-                print(myViews[index + 1])
-                print(myCurrentView)
+                //Animation bring to front
+                animatedFromRight()
+                //End animation
                 navigationItem.title = myCurrentView[0].title
                 view.bringSubviewToFront(myCurrentView[0])
-            }
-            for view in myViews {
-                print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
             }
 
         }
 
     }
-    
-
-    
-//    func getCurrentIndexByName(_ name: String) -> Int{
-//        var currentIndex = 0
-//        for i in 0...images.count - 1  {
-//            if name == images[i] {
-//                currentIndex = i
-//                break
-//            }
-//        }
-//        return currentIndex
-//    }
     
 }
 

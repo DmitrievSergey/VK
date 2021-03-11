@@ -26,10 +26,8 @@ class FriendsCellItem: UIImageView {
 
         
 
-        autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        backgroundColor = .black
         
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
     }
     
 }
