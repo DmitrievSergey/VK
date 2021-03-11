@@ -7,9 +7,12 @@
 
 import UIKit
 
+
 class FriendsListViewController: UIViewController{
 
     private var gradient: CAGradientLayer!
+    private var filteredArray: Array<Array<Friends>> = Array<Array<Friends>>()
+    private var filteredSectionArray: Array<String> = Array<String>()
 
     var notSortedArray: Array<Friends> = [
         Friends(friendName: "Alex"), Friends(friendName: "Kate"), Friends(friendName: "Serg"),
@@ -59,10 +62,11 @@ class FriendsListViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        filteredSectionArray = sectionArray
+        filteredArray = sortedFriends
         friendTableView.dataSource = self
         friendTableView.delegate = self
+        friendTableView.contentInset = UIEdgeInsets(top: 56, left: 0, bottom: 0, right: 0)
         gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [UIColor.blue.cgColor, UIColor.systemGray6.cgColor]
@@ -84,23 +88,23 @@ class FriendsListViewController: UIViewController{
     
     
 }
-extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate {
+extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return sectionArray.count
+        return filteredSectionArray.count
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
 
-        return sectionArray
+        return filteredSectionArray
     }
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        return self.sectionArray[section]
+        return self.filteredSectionArray[section]
 
     }
 
@@ -110,7 +114,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
 
           let label = UILabel()
           label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
-          label.text = sectionArray[section]
+          label.text = filteredSectionArray[section]
           label.font = UIFont(name: "System", size: 24) // my custom font
           label.textColor = UIColor.systemOrange // my custom colour
 
@@ -131,43 +135,53 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.backgroundColor = .clear
-//        let gradient: CAGradientLayer = CAGradientLayer()
-//        gradient.frame = view.bounds
-//        gradient.colors = [UIColor.systemGray6.cgColor, UIColor.cyan.cgColor]
-//        gradient.locations = [0,1]
-//        gradient.startPoint = CGPoint(x: 0, y: 0)
-//        gradient.endPoint = CGPoint(x: 1, y: 0)
-//        gradient.opacity = 0.1
-//        view.layer.addSublayer(gradient)
+
 
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sortedFriends[section].count
+        return filteredArray[section].count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellF = friendTableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCellView
-        let friend = sortedFriends[indexPath.section][indexPath.row]
+        let cellF = friendTableView.dequeueReusableCell(withIdentifier: "friendCell" , for: indexPath) as! FriendCellView
+        let friend = filteredArray[indexPath.section][indexPath.row]
         
-        cellF.friendNameLabel.text = friend.friendName
-        cellF.friendAvaImage.imageView.image = friend.friendAva
+        cellF.configureAvatar(with: friend)
         
         
         return cellF
     }
     
+    //MARK: - Search
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.keyboardType = .namePhonePad
+        if searchText.isEmpty {
+            filteredArray = sortedFriends
+            filteredSectionArray = sectionArray
+        } else {
+            filteredArray = sortedFriends.map {$0.filter { $0.friendName.lowercased().contains(searchText.lowercased()) }}.filter { !$0.isEmpty }
+            var tempArray = notSortedArray.filter({$0.friendName.lowercased().contains(searchText.lowercased())}).compactMap({$0.friendName.first})
+            tempArray = Array(Set(tempArray)).sorted(by: {$0 < $1})
+            filteredSectionArray = Array(tempArray).map { String($0) }
+        }
+        friendTableView.reloadData()
+    }
+    
+//    func position(for bar: UIBarPositioning) -> UIBarPosition {
+//        return .topAttached
+//    }
     //MARK: - Segue
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "ToFriendCollectionSegue",
                let senderCell = sender as? FriendCellView,
                let cellIndexPath = friendTableView.indexPath(for: senderCell),
                let friendCollectionViewcontroller = segue.destination as? FriendCollectionViewController {
-                let selectedFriend = sortedFriends[cellIndexPath.section][cellIndexPath.row]
+                let selectedFriend = filteredArray[cellIndexPath.section][cellIndexPath.row]
                 friendCollectionViewcontroller.displayedFriend = selectedFriend
             }
         }

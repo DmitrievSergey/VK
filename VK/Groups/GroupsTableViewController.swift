@@ -9,6 +9,7 @@ import UIKit
 
 class GroupsTableViewController: UITableViewController {
     
+    @IBOutlet var groupsTable: UITableView!
     let groupsList = [
         Group(groupName: "name1", groupAva: "groupAva1"),
         Group(groupName: "name2", groupAva: "groupAva2"),
@@ -22,9 +23,12 @@ class GroupsTableViewController: UITableViewController {
         Group(groupName: "name10", groupAva: "groupAva10"),
     ]
     
+    var filteredGroupList: Array<Group> = Array<Group>()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredGroupList = groupsList
         
     }
 
@@ -37,16 +41,28 @@ class GroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return groupsList.count
+        return filteredGroupList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCellViewController
 
-        cell.groupCellLabel.text = groupsList[indexPath.row].groupName
-        cell.groupCellImage.imageView.image = UIImage(named: groupsList[indexPath.row].groupAva)
+        cell.groupCellLabel.text = filteredGroupList[indexPath.row].groupName
+        cell.groupCellImage.imageView.image = UIImage(named: filteredGroupList[indexPath.row].groupAva)
 
         return cell
+    }
+}
+//TODO: - translate to ViewController
+extension GroupsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.keyboardType = .namePhonePad
+        if searchText.isEmpty {
+            filteredGroupList = groupsList
+        } else {
+            filteredGroupList = groupsList.filter({ $0.groupName.lowercased().contains(searchText.lowercased()) })
+        }
+        groupsTable.reloadData()
     }
 }
