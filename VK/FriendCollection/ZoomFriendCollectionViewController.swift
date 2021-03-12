@@ -148,7 +148,7 @@ class ZoomFriendCollectionViewController: UIViewController {
             print("ImageName - \(view.imageName), isCurrentImage - \(view.currentImage)")
         }
        
-
+        if myViews.count > 1 {
         if gesture.direction == UISwipeGestureRecognizer.Direction.right {
                 print("Swipe Right")
             print(index)
@@ -199,6 +199,7 @@ class ZoomFriendCollectionViewController: UIViewController {
             }
 
         }
+    }
 
     }
     
