@@ -62,6 +62,7 @@ class FriendsListViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         filteredSectionArray = sectionArray
         filteredArray = sortedFriends
         friendTableView.dataSource = self

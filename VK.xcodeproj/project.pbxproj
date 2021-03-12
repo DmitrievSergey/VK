@@ -11,6 +11,8 @@
 		671742FF25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671742FE25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift */; };
 		6717430325F73665002C09D1 /* FriendsCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717430225F73665002C09D1 /* FriendsCellItem.swift */; };
 		674A7E0025E3A48B0022EA9A /* ButtonLiked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A7DFF25E3A48B0022EA9A /* ButtonLiked.swift */; };
+		67569EAC25FA4DCA009706C1 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67569EAB25FA4DCA009706C1 /* CustomPushAnimator.swift */; };
+		67569EAF25FA5C71009706C1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67569EAE25FA5C71009706C1 /* NavigationController.swift */; };
 		6787880D25DE2018008C21D9 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787880C25DE2018008C21D9 /* FriendsListViewController.swift */; };
 		6787881125DE2035008C21D9 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787881025DE2035008C21D9 /* Friends.swift */; };
 		6787881425DE2065008C21D9 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787881325DE2065008C21D9 /* FriendCellView.swift */; };
@@ -42,6 +44,8 @@
 		671742FE25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomFriendCollectionViewController.swift; sourceTree = "<group>"; };
 		6717430225F73665002C09D1 /* FriendsCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellItem.swift; sourceTree = "<group>"; };
 		674A7DFF25E3A48B0022EA9A /* ButtonLiked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLiked.swift; sourceTree = "<group>"; };
+		67569EAB25FA4DCA009706C1 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		67569EAE25FA5C71009706C1 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		6787880C25DE2018008C21D9 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		6787881025DE2035008C21D9 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		6787881325DE2065008C21D9 /* FriendCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				6787883825DF52ED008C21D9 /* MyGroups */,
 				6787883925DF52FE008C21D9 /* Groups */,
 				67D15D6F25ECD750006E3C81 /* News */,
+				67569EAB25FA4DCA009706C1 /* CustomPushAnimator.swift */,
+				67569EAE25FA5C71009706C1 /* NavigationController.swift */,
 			);
 			path = VK;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				6787881C25DE2128008C21D9 /* FriendCollectionCellView.swift in Sources */,
 				6787884325DF6191008C21D9 /* MyGroupCellViewController.swift in Sources */,
 				6787883625DF52C6008C21D9 /* GroupCellViewController.swift in Sources */,
+				67569EAF25FA5C71009706C1 /* NavigationController.swift in Sources */,
 				6787883C25DF531B008C21D9 /* Group.swift in Sources */,
 				67D15D8625EE1DE7006E3C81 /* NewsPhotoCollectionViewLayout.swift in Sources */,
 				6787881925DE20F8008C21D9 /* FriendCollectionViewController.swift in Sources */,
@@ -275,6 +282,7 @@
 				67E44FE025D4D0AD007B8CC4 /* LogInViewController.swift in Sources */,
 				67D15D7825EDEE5B006E3C81 /* NewCollectionCell.swift in Sources */,
 				678788C225E296BE008C21D9 /* CustomAva.swift in Sources */,
+				67569EAC25FA4DCA009706C1 /* CustomPushAnimator.swift in Sources */,
 				6717430325F73665002C09D1 /* FriendsCellItem.swift in Sources */,
 				6787881425DE2065008C21D9 /* FriendCellView.swift in Sources */,
 				671742FF25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift in Sources */,

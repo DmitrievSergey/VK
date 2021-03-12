@@ -169,7 +169,7 @@
         <!--Friends-->
         <scene sceneID="tz1-3R-lWz">
             <objects>
-                <navigationController id="egv-IY-ddt" sceneMemberID="viewController">
+                <navigationController id="egv-IY-ddt" customClass="NavigationController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill.badge.plus" catalog="system" selectedImage="person.fill.badge.plus" id="d4r-Nq-QrT"/>
                     <navigationItem key="navigationItem" id="vrK-xA-qjH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KQZ-vf-Mxq">
