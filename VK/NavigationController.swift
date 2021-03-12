@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController, UINavigationControllerDelegate{
+class NavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
     
     fileprivate var interactivTransitionAnimator = InteractivTransitionAnimator()
     
@@ -15,23 +15,26 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let edgePanGestureRecogniser = UIPanGestureRecognizer(target: self, action: #selector(edgePanGestureStarted(_ :)))
-        //edgePanGestureRecogniser = .left
-        view.addGestureRecognizer(edgePanGestureRecogniser)
+        let edgePanGestureRecogniser = UIPanGestureRecognizer(target: self, action: #selector(self.edgePanGestureStarted(_ :)))
+        //edgePanGestureRecogniser.edges = UIRectEdge.left
+        self.view.addGestureRecognizer(edgePanGestureRecogniser)
         
         delegate = self
+        edgePanGestureRecogniser.delegate = self
         // Do any additional setup after loading the view.
     }
     
-    @objc private func edgePanGestureStarted(_ recogniser: UIPanGestureRecognizer) {
-        print("hello there!")
-        switch recogniser.state {
+    @objc private func edgePanGestureStarted(_ recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .recognized {
+            print("Screen edge swiped!")
+        }
+        switch recognizer.state {
         case .began:
             interactivTransitionAnimator.hasStarted = true
             popViewController(animated: true)
         case .changed:
             let totalGestureDistance: CGFloat = 200
-            let distance = recogniser.translation(in: recogniser.view?.superview).x
+            let distance = recognizer.translation(in: recognizer.view?.superview).x
             let relativeDistance = distance / totalGestureDistance
             let progress = max(0, min(1, relativeDistance))
             
@@ -78,6 +81,5 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
                               interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactivTransitionAnimator.hasStarted ? interactivTransitionAnimator : nil
     }
-
 }
 

@@ -75,6 +75,10 @@ class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
           completion: { finished in
             if finished && !transitionContext.transitionWasCancelled {
                 source.view.transform = .identity
+                destination.view.transform = .identity
+            } else if transitionContext.transitionWasCancelled {
+                destination.view.transform = .identity
+                source.view.transform = .identity
             }
             transitionContext.completeTransition(finished && !transitionContext.transitionWasCancelled)
         }
@@ -142,6 +146,10 @@ class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                       completion: { finished in
                                         if finished && !transitionContext.transitionWasCancelled {
                                             source.view.transform = .identity
+                                            destination.view.transform = .identity
+                                        } else if transitionContext.transitionWasCancelled{
+                                            source.view.transform = .identity
+                                            destination.view.transform = .identity
                                         }
                                         transitionContext.completeTransition(finished && !transitionContext.transitionWasCancelled)
                                     }

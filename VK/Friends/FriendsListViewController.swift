@@ -80,6 +80,7 @@ class FriendsListViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        friendTableView.reloadData()
 
     }
     
@@ -171,12 +172,10 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate,
                       cell.layer.transform = CATransform3DMakeScale(1,1,1)
                   })
           })
-//        cell.contentView.layer.opacity = 0.1
-//        cell.transform = CGAffineTransform(scaleX: 1, y : 0)
-//                UIView.animate(withDuration: 3, animations: {
-//                    cell.transform = CGAffineTransform(scaleX: 1, y : 1)
-//                    cell.contentView.layer.opacity = 1
-//                })
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68.0
     }
     
 
