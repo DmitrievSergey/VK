@@ -10,17 +10,18 @@ import UIKit
 class NavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
     
     fileprivate var interactivTransitionAnimator = InteractivTransitionAnimator()
+    var edgePanGestureRecogniser = UIPanGestureRecognizer()
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let edgePanGestureRecogniser = UIPanGestureRecognizer(target: self, action: #selector(self.edgePanGestureStarted(_ :)))
+        edgePanGestureRecogniser = UIPanGestureRecognizer(target: self, action: #selector(edgePanGestureStarted(_ :)))
         //edgePanGestureRecogniser.edges = UIRectEdge.left
-        self.view.addGestureRecognizer(edgePanGestureRecogniser)
-        
-        delegate = self
+        view.addGestureRecognizer(edgePanGestureRecogniser)
         edgePanGestureRecogniser.delegate = self
+        delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -55,17 +56,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
             break
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
@@ -81,5 +72,6 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
                               interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactivTransitionAnimator.hasStarted ? interactivTransitionAnimator : nil
     }
+
 }
 

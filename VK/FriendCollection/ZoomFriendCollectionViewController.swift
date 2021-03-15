@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ZoomFriendCollectionViewController: UIViewController {
+class ZoomFriendCollectionViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var interactiveAnimator: UIViewPropertyAnimator!
-    var swipeLeft: UISwipeGestureRecognizer!
-    var swipeRight: UISwipeGestureRecognizer!
+    var swipeLeft = UISwipeGestureRecognizer()
+    var swipeRight = UISwipeGestureRecognizer()
+    
     
     var myCurrentView = [FriendsCellItem]()
     var index = 0
@@ -26,7 +27,8 @@ class ZoomFriendCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        swipeRight.delegate = self
         view.backgroundColor = .black
         
         for image in images {
@@ -50,13 +52,14 @@ class ZoomFriendCollectionViewController: UIViewController {
             }
         }
         
-        swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(recognizer:)))
         swipeLeft.direction = .left
         view.addGestureRecognizer(swipeLeft)
 
-        swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(recognizer:)))
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,8 +75,9 @@ class ZoomFriendCollectionViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
-        self.swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        self.swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(recognizer:)))
+        self.swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(recognizer:)))
+        
         
     }
     
@@ -140,7 +144,11 @@ class ZoomFriendCollectionViewController: UIViewController {
         )
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer){
+
+        
+    
+    
+    @objc func handleGesture(recognizer: UISwipeGestureRecognizer){
         myViews = view.subviews.compactMap({$0 as? FriendsCellItem}).sorted(by: {$0.imageName < $1.imageName})
         myCurrentView = myViews.filter({$0.currentImage == true})
         index = myViews.lastIndex(of: myCurrentView[0]) ?? 0
@@ -151,7 +159,7 @@ class ZoomFriendCollectionViewController: UIViewController {
         }
        
         if myViews.count > 1 {
-        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+        if recognizer.direction == UISwipeGestureRecognizer.Direction.right {
                 print("Swipe Right")
             print(index)
             print(myViews.count - 1)
@@ -175,7 +183,7 @@ class ZoomFriendCollectionViewController: UIViewController {
                 navigationItem.title = myCurrentView[0].title
                 view.bringSubviewToFront(myCurrentView[0])
             }
-        } else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+        } else if recognizer.direction == UISwipeGestureRecognizer.Direction.left {
                 print("Swipe Left")
             print(index)
             print(myViews.count - 1)
