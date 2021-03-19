@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670760FC260436FB008D7D72 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670760FB260436FB008D7D72 /* Session.swift */; };
 		671742F425F32527002C09D1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671742F325F32527002C09D1 /* LoaderView.swift */; };
 		671742FF25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671742FE25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift */; };
 		6717430325F73665002C09D1 /* FriendsCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717430225F73665002C09D1 /* FriendsCellItem.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		670760FB260436FB008D7D72 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		671742F325F32527002C09D1 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		671742FE25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomFriendCollectionViewController.swift; sourceTree = "<group>"; };
 		6717430225F73665002C09D1 /* FriendsCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellItem.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				67569EAB25FA4DCA009706C1 /* CustomPushAnimator.swift */,
 				67569EAE25FA5C71009706C1 /* NavigationController.swift */,
 				675945F925FB5CB70086A42D /* InteractivTransitionAnimator.swift */,
+				670760FB260436FB008D7D72 /* Session.swift */,
 			);
 			path = VK;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				67D15D7825EDEE5B006E3C81 /* NewCollectionCell.swift in Sources */,
 				678788C225E296BE008C21D9 /* CustomAva.swift in Sources */,
 				67569EAC25FA4DCA009706C1 /* CustomPushAnimator.swift in Sources */,
+				670760FC260436FB008D7D72 /* Session.swift in Sources */,
 				6717430325F73665002C09D1 /* FriendsCellItem.swift in Sources */,
 				6787881425DE2065008C21D9 /* FriendCellView.swift in Sources */,
 				671742FF25F7337D002C09D1 /* ZoomFriendCollectionViewController.swift in Sources */,
