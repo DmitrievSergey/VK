@@ -8,6 +8,7 @@
 import UIKit
 
 class FriendCollectionCellView: UICollectionViewCell {
+
     
     @IBOutlet weak var imageCellCollection: UIImageView!
     @IBOutlet weak var customButtonLiked: ButtonLiked!
@@ -22,7 +23,5 @@ class FriendCollectionCellView: UICollectionViewCell {
     
     override class func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-
 }

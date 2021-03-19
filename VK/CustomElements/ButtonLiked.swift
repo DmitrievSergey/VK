@@ -27,7 +27,14 @@ class ButtonLiked: UIView {
         
         print("Зашли внутрь функции ButtonLiked")
         if isPressed == true {
-            
+            UIView.transition(
+                with: countLabel,
+                duration: 3,
+                options: .transitionFlipFromLeft,
+                animations: {
+                    self.countLabel.text = "1"
+                },
+                completion: nil)
             UIView.animate(
                 withDuration: 1,
                 delay: 0,
@@ -37,14 +44,7 @@ class ButtonLiked: UIView {
                 animations: { [self]
                     in
                     button.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
-                    UIView.transition(
-                        with: countLabel,
-                        duration: 6,
-                        options: .transitionFlipFromLeft,
-                        animations: {
-                            countLabel.text = "1"
-                        },
-                        completion: nil)
+                    
                 },
                 completion: { [self]
                     finished in
@@ -52,6 +52,14 @@ class ButtonLiked: UIView {
                 })
         }
         else {
+            UIView.transition(
+                with: countLabel,
+                duration: 3,
+                options: .transitionFlipFromLeft,
+                animations: {
+                    self.countLabel.text = "0"
+                },
+                completion: nil)
             UIView.animate(
                 withDuration: 1,
                 delay: 0,
@@ -61,14 +69,7 @@ class ButtonLiked: UIView {
                 animations: { [self]
                     in
                     button.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-                    UIView.transition(
-                        with: countLabel,
-                        duration: 6,
-                        options: .transitionFlipFromLeft,
-                        animations: {
-                            countLabel.text = "0"
-                        },
-                        completion: nil)
+
                 },
                 completion: { [self]
                     finished in
