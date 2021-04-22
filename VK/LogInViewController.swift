@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class LogInViewController: UIViewController {
     @IBOutlet var logInTextFIeld: UITextField!
@@ -13,6 +14,12 @@ class LogInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet weak var webview: WKWebView! {
+        didSet{
+            webview.navigationDelegate = self
+        }
+    }
     
  
     @IBOutlet weak var loaderView: LoaderView!
@@ -25,6 +32,23 @@ class LogInViewController: UIViewController {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(tapView))
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "oauth.vk.com"
+        urlComponents.path = "/authorize"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "7833467"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "v", value: "5.68")
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        
+        webview.load(request)
 
     }
     
@@ -127,5 +151,45 @@ class LogInViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
+}
+extension LogInViewController: WKNavigationDelegate {
+    func webView (_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment else {
+            decisionHandler(.allow)
+            return
+        }
+        
+        let param = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String] ()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+            }
+        
+        let token = param["access_token"]
+        let userId = param["user_id"]
+        
+        print("token = ")
+        print(token as Any)
+        
+        Session.instance.token = token ?? ""
+        Session.instance.userId = userId ?? ""
+        
+        NetworkService.loadGroups(userId: Session.instance.userId, token: Session.instance.token)
+        NetworkService.loadGroupsBySearch(userId: Session.instance.userId, token: Session.instance.token, stringSearch: "IT")
+        NetworkService.getAllUserPhotos(userId: Session.instance.userId, token: Session.instance.token)
+        NetworkService.getUserFriends(userId: Session.instance.userId, token: Session.instance.token)
+        
+        
+        performSegue(withIdentifier: "ToTabBarController", sender: nil)
+        
+        
+        
+        decisionHandler(.cancel)
+    }
 }
 
