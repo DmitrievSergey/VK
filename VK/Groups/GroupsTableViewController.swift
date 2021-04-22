@@ -29,6 +29,7 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroupList = groupsList
+       
         
     }
 
